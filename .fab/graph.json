@@ -1,0 +1,1004 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "1970-01-01T00:00:00.000Z",
+  "projectRoot": "/home/khai/projects/fabric",
+  "projectName": "fabric-monorepo",
+  "filesScanned": 21,
+  "nodes": [
+    {
+      "id": "app.index",
+      "name": "Index App",
+      "type": "app",
+      "owns": [
+        "packages/cli/src/index.ts",
+        "packages/core/src/index.ts"
+      ],
+      "dependsOn": [
+        "utility.default.config",
+        "utility.load.config",
+        "workflow.build.graph",
+        "workflow.detect.imports",
+        "workflow.detect.routes",
+        "workflow.detect.tests",
+        "workflow.init",
+        "workflow.read.graph",
+        "workflow.scan",
+        "workflow.scan.repo",
+        "workflow.status",
+        "workflow.types",
+        "workflow.write.graph"
+      ],
+      "tags": [
+        "index"
+      ],
+      "evidence": [
+        {
+          "file": "packages/cli/src/index.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        },
+        {
+          "file": "packages/core/src/index.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Coordinates application entrypoint behavior for Index.",
+      "summaryPath": ".fab/summaries/app.index.summary.md"
+    },
+    {
+      "id": "route.auth",
+      "name": "Auth Route",
+      "type": "route",
+      "owns": [
+        "packages/core/src/scanner/detectRoutes.test.ts"
+      ],
+      "dependsOn": [
+        "test.detect.routes"
+      ],
+      "tags": [
+        "mount",
+        "route"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 24,
+          "endLine": 24,
+          "reason": "Detected Express-style route pattern for /auth."
+        }
+      ],
+      "description": "Defines Mount-related routing behavior.",
+      "summaryPath": ".fab/summaries/route.auth.summary.md"
+    },
+    {
+      "id": "route.get.users",
+      "name": "Get Users Route",
+      "type": "route",
+      "owns": [
+        "packages/core/src/scanner/detectRoutes.test.ts"
+      ],
+      "dependsOn": [
+        "test.detect.routes"
+      ],
+      "tags": [
+        "get",
+        "route"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 22,
+          "endLine": 22,
+          "reason": "Detected Express-style GET route pattern for /users."
+        }
+      ],
+      "description": "Defines Get-related routing behavior.",
+      "summaryPath": ".fab/summaries/route.get.users.summary.md"
+    },
+    {
+      "id": "route.post.login",
+      "name": "Post Login Route",
+      "type": "route",
+      "owns": [
+        "packages/core/src/scanner/detectRoutes.test.ts"
+      ],
+      "dependsOn": [
+        "test.detect.routes"
+      ],
+      "tags": [
+        "post",
+        "route"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 23,
+          "endLine": 23,
+          "reason": "Detected Express-style POST route pattern for /login."
+        }
+      ],
+      "description": "Defines Post-related routing behavior.",
+      "summaryPath": ".fab/summaries/route.post.login.summary.md"
+    },
+    {
+      "id": "test.detect.routes",
+      "name": "Detect Routes Test",
+      "type": "test",
+      "owns": [
+        "packages/core/src/scanner/detectRoutes.test.ts"
+      ],
+      "dependsOn": [
+        "workflow.detect.imports",
+        "workflow.detect.routes"
+      ],
+      "tags": [
+        "detect.routes"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "reason": "File path or extension indicates a test file."
+        }
+      ],
+      "description": "Covers Detect Routes-related behavior with tests.",
+      "summaryPath": ".fab/summaries/test.detect.routes.summary.md"
+    },
+    {
+      "id": "utility.default.config",
+      "name": "Default Config Utility",
+      "type": "utility",
+      "owns": [
+        "packages/core/src/config/defaultConfig.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "default.config"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/config/defaultConfig.ts",
+          "reason": "Folder name \"config\" indicates utility ownership."
+        }
+      ],
+      "description": "Provides Default Config-related helper utilities.",
+      "summaryPath": ".fab/summaries/utility.default.config.summary.md"
+    },
+    {
+      "id": "utility.generate.static.summaries",
+      "name": "Generate Static Summaries Utility",
+      "type": "utility",
+      "owns": [
+        "packages/core/src/summaries/generateStaticSummaries.ts"
+      ],
+      "dependsOn": [
+        "workflow.types"
+      ],
+      "tags": [
+        "generate.static.summaries"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/summaries/generateStaticSummaries.ts",
+          "reason": "Folder name \"summaries\" indicates utility ownership."
+        }
+      ],
+      "description": "Provides Generate Static Summaries-related helper utilities.",
+      "summaryPath": ".fab/summaries/utility.generate.static.summaries.summary.md"
+    },
+    {
+      "id": "utility.load.config",
+      "name": "Load Config Utility",
+      "type": "utility",
+      "owns": [
+        "packages/core/src/config/loadConfig.ts"
+      ],
+      "dependsOn": [
+        "utility.default.config"
+      ],
+      "tags": [
+        "load.config"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/config/loadConfig.ts",
+          "reason": "Folder name \"config\" indicates utility ownership."
+        }
+      ],
+      "description": "Provides Load Config-related helper utilities.",
+      "summaryPath": ".fab/summaries/utility.load.config.summary.md"
+    },
+    {
+      "id": "utility.types",
+      "name": "Types Utility",
+      "type": "utility",
+      "owns": [
+        "packages/types.d.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "types"
+      ],
+      "evidence": [
+        {
+          "file": "packages/types.d.ts",
+          "reason": "Top-level source file was grouped as an app node."
+        }
+      ],
+      "description": "Provides Types-related helper utilities.",
+      "summaryPath": ".fab/summaries/utility.types.summary.md"
+    },
+    {
+      "id": "workflow.build.graph",
+      "name": "Build Graph Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/graph/buildGraph.ts"
+      ],
+      "dependsOn": [
+        "workflow.infer.nodes",
+        "workflow.scan.repo",
+        "workflow.types"
+      ],
+      "tags": [
+        "build.graph"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/buildGraph.ts",
+          "reason": "Folder name \"graph\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Build Graph-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.build.graph.summary.md"
+    },
+    {
+      "id": "workflow.detect.imports",
+      "name": "Detect Imports Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/scanner/detectImports.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "detect.imports"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectImports.ts",
+          "reason": "Folder name \"scanner\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Detect Imports-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.detect.imports.summary.md"
+    },
+    {
+      "id": "workflow.detect.package.info",
+      "name": "Detect Package Info Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/scanner/detectPackageInfo.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "detect.package.info"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectPackageInfo.ts",
+          "reason": "Folder name \"scanner\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Detect Package Info-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.detect.package.info.summary.md"
+    },
+    {
+      "id": "workflow.detect.routes",
+      "name": "Detect Routes Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/scanner/detectRoutes.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "detect.routes"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.ts",
+          "reason": "Folder name \"scanner\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Detect Routes-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.detect.routes.summary.md"
+    },
+    {
+      "id": "workflow.detect.tests",
+      "name": "Detect Tests Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/scanner/detectTests.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "detect.tests"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectTests.ts",
+          "reason": "Folder name \"scanner\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Detect Tests-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.detect.tests.summary.md"
+    },
+    {
+      "id": "workflow.infer.nodes",
+      "name": "Infer Nodes Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/nodes/inferNodes.ts"
+      ],
+      "dependsOn": [
+        "workflow.scan.repo",
+        "workflow.types"
+      ],
+      "tags": [
+        "infer.nodes"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/inferNodes.ts",
+          "reason": "Folder name \"nodes\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Infer Nodes-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.infer.nodes.summary.md"
+    },
+    {
+      "id": "workflow.init",
+      "name": "Init Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/cli/src/commands/init.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "init"
+      ],
+      "evidence": [
+        {
+          "file": "packages/cli/src/commands/init.ts",
+          "reason": "Folder name \"commands\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Init-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.init.summary.md"
+    },
+    {
+      "id": "workflow.read.graph",
+      "name": "Read Graph Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/graph/readGraph.ts"
+      ],
+      "dependsOn": [
+        "workflow.types"
+      ],
+      "tags": [
+        "read.graph"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/readGraph.ts",
+          "reason": "Folder name \"graph\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Read Graph-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.read.graph.summary.md"
+    },
+    {
+      "id": "workflow.scan",
+      "name": "Scan Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/cli/src/commands/scan.ts"
+      ],
+      "dependsOn": [
+        "workflow.init"
+      ],
+      "tags": [
+        "scan"
+      ],
+      "evidence": [
+        {
+          "file": "packages/cli/src/commands/scan.ts",
+          "reason": "Folder name \"commands\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Scan-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.scan.summary.md"
+    },
+    {
+      "id": "workflow.scan.repo",
+      "name": "Scan Repo Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/scanner/scanRepo.ts"
+      ],
+      "dependsOn": [
+        "utility.load.config",
+        "workflow.detect.imports",
+        "workflow.detect.package.info",
+        "workflow.detect.routes",
+        "workflow.detect.tests"
+      ],
+      "tags": [
+        "scan.repo"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/scanRepo.ts",
+          "reason": "Folder name \"scanner\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Scan Repo-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.scan.repo.summary.md"
+    },
+    {
+      "id": "workflow.status",
+      "name": "Status Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/cli/src/commands/status.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "status"
+      ],
+      "evidence": [
+        {
+          "file": "packages/cli/src/commands/status.ts",
+          "reason": "Folder name \"commands\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Status-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.status.summary.md"
+    },
+    {
+      "id": "workflow.types",
+      "name": "Types Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/graph/types.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "types"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/types.ts",
+          "reason": "Folder name \"graph\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Types-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.types.summary.md"
+    },
+    {
+      "id": "workflow.write.graph",
+      "name": "Write Graph Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/graph/writeGraph.ts"
+      ],
+      "dependsOn": [
+        "workflow.types",
+        "workflow.write.nodes"
+      ],
+      "tags": [
+        "write.graph"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/writeGraph.ts",
+          "reason": "Folder name \"graph\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Write Graph-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.write.graph.summary.md"
+    },
+    {
+      "id": "workflow.write.nodes",
+      "name": "Write Nodes Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/nodes/writeNodes.ts"
+      ],
+      "dependsOn": [
+        "utility.generate.static.summaries",
+        "workflow.types"
+      ],
+      "tags": [
+        "write.nodes"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/writeNodes.ts",
+          "reason": "Folder name \"nodes\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Write Nodes-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.write.nodes.summary.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "app.index",
+      "to": "utility.default.config",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "reason": "Imports ./config/defaultConfig."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "utility.load.config",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ./config/loadConfig."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.build.graph",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 7,
+          "endLine": 7,
+          "reason": "Imports ./graph/buildGraph."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.detect.imports",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ./scanner/detectImports."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.detect.routes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ./scanner/detectRoutes."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.detect.tests",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "reason": "Imports ./scanner/detectTests."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.init",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/cli/src/index.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ./commands/init."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.read.graph",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 9,
+          "endLine": 9,
+          "reason": "Imports ./graph/readGraph."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.scan",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/cli/src/index.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./commands/scan."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.scan.repo",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./scanner/scanRepo."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.status",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/cli/src/index.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ./commands/status."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 10,
+          "endLine": 10,
+          "reason": "Imports ./graph/types."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.write.graph",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 8,
+          "endLine": 8,
+          "reason": "Imports ./graph/writeGraph."
+        }
+      ]
+    },
+    {
+      "from": "route.auth",
+      "to": "test.detect.routes",
+      "type": "owns",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 24,
+          "endLine": 24,
+          "reason": "Route node is backed by this source file."
+        }
+      ]
+    },
+    {
+      "from": "route.get.users",
+      "to": "test.detect.routes",
+      "type": "owns",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 22,
+          "endLine": 22,
+          "reason": "Route node is backed by this source file."
+        }
+      ]
+    },
+    {
+      "from": "route.post.login",
+      "to": "test.detect.routes",
+      "type": "owns",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 23,
+          "endLine": 23,
+          "reason": "Route node is backed by this source file."
+        }
+      ]
+    },
+    {
+      "from": "test.detect.routes",
+      "to": "workflow.detect.imports",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ./detectImports."
+        }
+      ]
+    },
+    {
+      "from": "test.detect.routes",
+      "to": "workflow.detect.routes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/detectRoutes.test.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./detectRoutes."
+        }
+      ]
+    },
+    {
+      "from": "utility.generate.static.summaries",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/summaries/generateStaticSummaries.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "reason": "Imports ../graph/types."
+        }
+      ]
+    },
+    {
+      "from": "utility.load.config",
+      "to": "utility.default.config",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/config/loadConfig.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ./defaultConfig."
+        }
+      ]
+    },
+    {
+      "from": "workflow.build.graph",
+      "to": "workflow.infer.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/buildGraph.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ../nodes/inferNodes."
+        }
+      ]
+    },
+    {
+      "from": "workflow.build.graph",
+      "to": "workflow.scan.repo",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/buildGraph.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ../scanner/scanRepo."
+        }
+      ]
+    },
+    {
+      "from": "workflow.build.graph",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/buildGraph.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "reason": "Imports ./types."
+        }
+      ]
+    },
+    {
+      "from": "workflow.infer.nodes",
+      "to": "workflow.scan.repo",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/inferNodes.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ../scanner/scanRepo."
+        }
+      ]
+    },
+    {
+      "from": "workflow.infer.nodes",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/inferNodes.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ../graph/types."
+        }
+      ]
+    },
+    {
+      "from": "workflow.read.graph",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/readGraph.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./types."
+        }
+      ]
+    },
+    {
+      "from": "workflow.scan",
+      "to": "workflow.init",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/cli/src/commands/scan.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ./init."
+        }
+      ]
+    },
+    {
+      "from": "workflow.scan.repo",
+      "to": "utility.load.config",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/scanRepo.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ../config/loadConfig."
+        }
+      ]
+    },
+    {
+      "from": "workflow.scan.repo",
+      "to": "workflow.detect.imports",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/scanRepo.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ./detectImports."
+        }
+      ]
+    },
+    {
+      "from": "workflow.scan.repo",
+      "to": "workflow.detect.package.info",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/scanRepo.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ./detectPackageInfo."
+        }
+      ]
+    },
+    {
+      "from": "workflow.scan.repo",
+      "to": "workflow.detect.routes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/scanRepo.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "reason": "Imports ./detectRoutes."
+        }
+      ]
+    },
+    {
+      "from": "workflow.scan.repo",
+      "to": "workflow.detect.tests",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/scanner/scanRepo.ts",
+          "startLine": 7,
+          "endLine": 7,
+          "reason": "Imports ./detectTests."
+        }
+      ]
+    },
+    {
+      "from": "workflow.write.graph",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/writeGraph.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./types."
+        }
+      ]
+    },
+    {
+      "from": "workflow.write.graph",
+      "to": "workflow.write.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/writeGraph.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ../nodes/writeNodes."
+        }
+      ]
+    },
+    {
+      "from": "workflow.write.nodes",
+      "to": "utility.generate.static.summaries",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/writeNodes.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ../summaries/generateStaticSummaries."
+        }
+      ]
+    },
+    {
+      "from": "workflow.write.nodes",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/writeNodes.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ../graph/types."
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

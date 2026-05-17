@@ -1,0 +1,10 @@
+export { defaultConfig, type FabricConfig } from "./config/defaultConfig";
+export { loadConfig } from "./config/loadConfig";
+export { scanRepo, type ScanResult, type SourceFileInfo } from "./scanner/scanRepo";
+export { detectImports, detectExports } from "./scanner/detectImports";
+export { detectRoutes } from "./scanner/detectRoutes";
+export { isTestFile } from "./scanner/detectTests";
+export { buildGraph } from "./graph/buildGraph";
+export { writeGraph } from "./graph/writeGraph";
+export { readGraph } from "./graph/readGraph";
+export type { FabricEdge, FabricEvidence, FabricGraph, FabricNode, FabricNodeType } from "./graph/types";

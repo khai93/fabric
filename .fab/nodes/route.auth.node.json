@@ -1,0 +1,25 @@
+{
+  "id": "route.auth",
+  "name": "Auth Route",
+  "type": "route",
+  "owns": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "dependsOn": [
+    "test.detect.routes"
+  ],
+  "tags": [
+    "mount",
+    "route"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectRoutes.test.ts",
+      "startLine": 24,
+      "endLine": 24,
+      "reason": "Detected Express-style route pattern for /auth."
+    }
+  ],
+  "description": "Defines Mount-related routing behavior.",
+  "summaryPath": ".fab/summaries/route.auth.summary.md"
+}

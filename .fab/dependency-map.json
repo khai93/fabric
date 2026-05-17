@@ -1,0 +1,75 @@
+{
+  "app.index": [
+    "utility.default.config",
+    "utility.load.config",
+    "workflow.build.graph",
+    "workflow.detect.imports",
+    "workflow.detect.routes",
+    "workflow.detect.tests",
+    "workflow.init",
+    "workflow.read.graph",
+    "workflow.scan",
+    "workflow.scan.repo",
+    "workflow.status",
+    "workflow.types",
+    "workflow.write.graph"
+  ],
+  "route.auth": [
+    "test.detect.routes"
+  ],
+  "route.get.users": [
+    "test.detect.routes"
+  ],
+  "route.post.login": [
+    "test.detect.routes"
+  ],
+  "test.detect.routes": [
+    "workflow.detect.imports",
+    "workflow.detect.routes"
+  ],
+  "utility.default.config": [],
+  "utility.generate.static.summaries": [
+    "workflow.types"
+  ],
+  "utility.load.config": [
+    "utility.default.config"
+  ],
+  "utility.types": [],
+  "workflow.build.graph": [
+    "workflow.infer.nodes",
+    "workflow.scan.repo",
+    "workflow.types"
+  ],
+  "workflow.detect.imports": [],
+  "workflow.detect.package.info": [],
+  "workflow.detect.routes": [],
+  "workflow.detect.tests": [],
+  "workflow.infer.nodes": [
+    "workflow.scan.repo",
+    "workflow.types"
+  ],
+  "workflow.init": [],
+  "workflow.read.graph": [
+    "workflow.types"
+  ],
+  "workflow.scan": [
+    "workflow.init"
+  ],
+  "workflow.scan.repo": [
+    "utility.load.config",
+    "workflow.detect.imports",
+    "workflow.detect.package.info",
+    "workflow.detect.routes",
+    "workflow.detect.tests"
+  ],
+  "workflow.status": [],
+  "workflow.types": [],
+  "workflow.write.graph": [
+    "workflow.types",
+    "workflow.write.nodes"
+  ],
+  "workflow.write.nodes": [
+    "utility.generate.static.summaries",
+    "workflow.types"
+  ]
+}

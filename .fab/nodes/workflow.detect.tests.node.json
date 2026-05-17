@@ -1,0 +1,20 @@
+{
+  "id": "workflow.detect.tests",
+  "name": "Detect Tests Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/scanner/detectTests.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "detect.tests"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectTests.ts",
+      "reason": "Folder name \"scanner\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Detect Tests-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.detect.tests.summary.md"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "workflow.write.graph",
+  "name": "Write Graph Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/graph/writeGraph.ts"
+  ],
+  "dependsOn": [
+    "workflow.types",
+    "workflow.write.nodes"
+  ],
+  "tags": [
+    "write.graph"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/graph/writeGraph.ts",
+      "reason": "Folder name \"graph\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Write Graph-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.write.graph.summary.md"
+}

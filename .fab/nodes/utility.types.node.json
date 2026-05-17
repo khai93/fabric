@@ -1,0 +1,20 @@
+{
+  "id": "utility.types",
+  "name": "Types Utility",
+  "type": "utility",
+  "owns": [
+    "packages/types.d.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "types"
+  ],
+  "evidence": [
+    {
+      "file": "packages/types.d.ts",
+      "reason": "Top-level source file was grouped as an app node."
+    }
+  ],
+  "description": "Provides Types-related helper utilities.",
+  "summaryPath": ".fab/summaries/utility.types.summary.md"
+}

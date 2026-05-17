@@ -1,0 +1,25 @@
+{
+  "id": "route.post.login",
+  "name": "Post Login Route",
+  "type": "route",
+  "owns": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "dependsOn": [
+    "test.detect.routes"
+  ],
+  "tags": [
+    "post",
+    "route"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectRoutes.test.ts",
+      "startLine": 23,
+      "endLine": 23,
+      "reason": "Detected Express-style POST route pattern for /login."
+    }
+  ],
+  "description": "Defines Post-related routing behavior.",
+  "summaryPath": ".fab/summaries/route.post.login.summary.md"
+}

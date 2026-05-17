@@ -1,0 +1,22 @@
+{
+  "id": "workflow.scan",
+  "name": "Scan Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/cli/src/commands/scan.ts"
+  ],
+  "dependsOn": [
+    "workflow.init"
+  ],
+  "tags": [
+    "scan"
+  ],
+  "evidence": [
+    {
+      "file": "packages/cli/src/commands/scan.ts",
+      "reason": "Folder name \"commands\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Scan-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.scan.summary.md"
+}

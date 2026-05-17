@@ -1,0 +1,20 @@
+{
+  "id": "workflow.types",
+  "name": "Types Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/graph/types.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "types"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/graph/types.ts",
+      "reason": "Folder name \"graph\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Types-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.types.summary.md"
+}

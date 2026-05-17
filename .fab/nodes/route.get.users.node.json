@@ -1,0 +1,25 @@
+{
+  "id": "route.get.users",
+  "name": "Get Users Route",
+  "type": "route",
+  "owns": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "dependsOn": [
+    "test.detect.routes"
+  ],
+  "tags": [
+    "get",
+    "route"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectRoutes.test.ts",
+      "startLine": 22,
+      "endLine": 22,
+      "reason": "Detected Express-style GET route pattern for /users."
+    }
+  ],
+  "description": "Defines Get-related routing behavior.",
+  "summaryPath": ".fab/summaries/route.get.users.summary.md"
+}

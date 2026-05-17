@@ -1,0 +1,72 @@
+{
+  "app.index": [
+    "packages/cli/src/index.ts",
+    "packages/core/src/index.ts"
+  ],
+  "route.auth": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "route.get.users": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "route.post.login": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "test.detect.routes": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "utility.default.config": [
+    "packages/core/src/config/defaultConfig.ts"
+  ],
+  "utility.generate.static.summaries": [
+    "packages/core/src/summaries/generateStaticSummaries.ts"
+  ],
+  "utility.load.config": [
+    "packages/core/src/config/loadConfig.ts"
+  ],
+  "utility.types": [
+    "packages/types.d.ts"
+  ],
+  "workflow.build.graph": [
+    "packages/core/src/graph/buildGraph.ts"
+  ],
+  "workflow.detect.imports": [
+    "packages/core/src/scanner/detectImports.ts"
+  ],
+  "workflow.detect.package.info": [
+    "packages/core/src/scanner/detectPackageInfo.ts"
+  ],
+  "workflow.detect.routes": [
+    "packages/core/src/scanner/detectRoutes.ts"
+  ],
+  "workflow.detect.tests": [
+    "packages/core/src/scanner/detectTests.ts"
+  ],
+  "workflow.infer.nodes": [
+    "packages/core/src/nodes/inferNodes.ts"
+  ],
+  "workflow.init": [
+    "packages/cli/src/commands/init.ts"
+  ],
+  "workflow.read.graph": [
+    "packages/core/src/graph/readGraph.ts"
+  ],
+  "workflow.scan": [
+    "packages/cli/src/commands/scan.ts"
+  ],
+  "workflow.scan.repo": [
+    "packages/core/src/scanner/scanRepo.ts"
+  ],
+  "workflow.status": [
+    "packages/cli/src/commands/status.ts"
+  ],
+  "workflow.types": [
+    "packages/core/src/graph/types.ts"
+  ],
+  "workflow.write.graph": [
+    "packages/core/src/graph/writeGraph.ts"
+  ],
+  "workflow.write.nodes": [
+    "packages/core/src/nodes/writeNodes.ts"
+  ]
+}

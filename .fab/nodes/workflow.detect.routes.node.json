@@ -1,0 +1,20 @@
+{
+  "id": "workflow.detect.routes",
+  "name": "Detect Routes Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/scanner/detectRoutes.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "detect.routes"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectRoutes.ts",
+      "reason": "Folder name \"scanner\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Detect Routes-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.detect.routes.summary.md"
+}

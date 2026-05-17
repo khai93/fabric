@@ -1,0 +1,20 @@
+{
+  "id": "workflow.detect.imports",
+  "name": "Detect Imports Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/scanner/detectImports.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "detect.imports"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectImports.ts",
+      "reason": "Folder name \"scanner\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Detect Imports-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.detect.imports.summary.md"
+}

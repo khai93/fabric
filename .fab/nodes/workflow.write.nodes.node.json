@@ -1,0 +1,23 @@
+{
+  "id": "workflow.write.nodes",
+  "name": "Write Nodes Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/nodes/writeNodes.ts"
+  ],
+  "dependsOn": [
+    "utility.generate.static.summaries",
+    "workflow.types"
+  ],
+  "tags": [
+    "write.nodes"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/nodes/writeNodes.ts",
+      "reason": "Folder name \"nodes\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Write Nodes-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.write.nodes.summary.md"
+}

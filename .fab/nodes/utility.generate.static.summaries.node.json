@@ -1,0 +1,22 @@
+{
+  "id": "utility.generate.static.summaries",
+  "name": "Generate Static Summaries Utility",
+  "type": "utility",
+  "owns": [
+    "packages/core/src/summaries/generateStaticSummaries.ts"
+  ],
+  "dependsOn": [
+    "workflow.types"
+  ],
+  "tags": [
+    "generate.static.summaries"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/summaries/generateStaticSummaries.ts",
+      "reason": "Folder name \"summaries\" indicates utility ownership."
+    }
+  ],
+  "description": "Provides Generate Static Summaries-related helper utilities.",
+  "summaryPath": ".fab/summaries/utility.generate.static.summaries.summary.md"
+}

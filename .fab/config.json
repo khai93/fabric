@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "sourceOfTruth": "files",
+  "nodeGranularity": "capability",
+  "include": [
+    "src/**/*",
+    "app/**/*",
+    "packages/**/*"
+  ],
+  "exclude": [
+    "node_modules/**",
+    ".git/**",
+    ".fab/**",
+    "dist/**",
+    "build/**",
+    "coverage/**"
+  ]
+}

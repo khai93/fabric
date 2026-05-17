@@ -1,0 +1,24 @@
+{
+  "id": "workflow.build.graph",
+  "name": "Build Graph Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/graph/buildGraph.ts"
+  ],
+  "dependsOn": [
+    "workflow.infer.nodes",
+    "workflow.scan.repo",
+    "workflow.types"
+  ],
+  "tags": [
+    "build.graph"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/graph/buildGraph.ts",
+      "reason": "Folder name \"graph\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Build Graph-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.build.graph.summary.md"
+}

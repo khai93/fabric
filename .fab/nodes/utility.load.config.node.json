@@ -1,0 +1,22 @@
+{
+  "id": "utility.load.config",
+  "name": "Load Config Utility",
+  "type": "utility",
+  "owns": [
+    "packages/core/src/config/loadConfig.ts"
+  ],
+  "dependsOn": [
+    "utility.default.config"
+  ],
+  "tags": [
+    "load.config"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/config/loadConfig.ts",
+      "reason": "Folder name \"config\" indicates utility ownership."
+    }
+  ],
+  "description": "Provides Load Config-related helper utilities.",
+  "summaryPath": ".fab/summaries/utility.load.config.summary.md"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "utility.default.config",
+  "name": "Default Config Utility",
+  "type": "utility",
+  "owns": [
+    "packages/core/src/config/defaultConfig.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "default.config"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/config/defaultConfig.ts",
+      "reason": "Folder name \"config\" indicates utility ownership."
+    }
+  ],
+  "description": "Provides Default Config-related helper utilities.",
+  "summaryPath": ".fab/summaries/utility.default.config.summary.md"
+}

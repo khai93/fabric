@@ -1,0 +1,23 @@
+{
+  "id": "test.detect.routes",
+  "name": "Detect Routes Test",
+  "type": "test",
+  "owns": [
+    "packages/core/src/scanner/detectRoutes.test.ts"
+  ],
+  "dependsOn": [
+    "workflow.detect.imports",
+    "workflow.detect.routes"
+  ],
+  "tags": [
+    "detect.routes"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectRoutes.test.ts",
+      "reason": "File path or extension indicates a test file."
+    }
+  ],
+  "description": "Covers Detect Routes-related behavior with tests.",
+  "summaryPath": ".fab/summaries/test.detect.routes.summary.md"
+}

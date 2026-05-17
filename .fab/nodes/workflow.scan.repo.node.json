@@ -1,0 +1,26 @@
+{
+  "id": "workflow.scan.repo",
+  "name": "Scan Repo Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/scanner/scanRepo.ts"
+  ],
+  "dependsOn": [
+    "utility.load.config",
+    "workflow.detect.imports",
+    "workflow.detect.package.info",
+    "workflow.detect.routes",
+    "workflow.detect.tests"
+  ],
+  "tags": [
+    "scan.repo"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/scanRepo.ts",
+      "reason": "Folder name \"scanner\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Scan Repo-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.scan.repo.summary.md"
+}

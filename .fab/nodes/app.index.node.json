@@ -1,0 +1,39 @@
+{
+  "id": "app.index",
+  "name": "Index App",
+  "type": "app",
+  "owns": [
+    "packages/cli/src/index.ts",
+    "packages/core/src/index.ts"
+  ],
+  "dependsOn": [
+    "utility.default.config",
+    "utility.load.config",
+    "workflow.build.graph",
+    "workflow.detect.imports",
+    "workflow.detect.routes",
+    "workflow.detect.tests",
+    "workflow.init",
+    "workflow.read.graph",
+    "workflow.scan",
+    "workflow.scan.repo",
+    "workflow.status",
+    "workflow.types",
+    "workflow.write.graph"
+  ],
+  "tags": [
+    "index"
+  ],
+  "evidence": [
+    {
+      "file": "packages/cli/src/index.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    },
+    {
+      "file": "packages/core/src/index.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Coordinates application entrypoint behavior for Index.",
+  "summaryPath": ".fab/summaries/app.index.summary.md"
+}

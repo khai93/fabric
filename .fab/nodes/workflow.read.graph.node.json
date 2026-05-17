@@ -1,0 +1,22 @@
+{
+  "id": "workflow.read.graph",
+  "name": "Read Graph Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/graph/readGraph.ts"
+  ],
+  "dependsOn": [
+    "workflow.types"
+  ],
+  "tags": [
+    "read.graph"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/graph/readGraph.ts",
+      "reason": "Folder name \"graph\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Read Graph-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.read.graph.summary.md"
+}

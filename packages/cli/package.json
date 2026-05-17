@@ -1,0 +1,12 @@
+{
+  "name": "@fabric/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "fabric": "./src/index.ts",
+    "fab": "./src/index.ts"
+  },
+  "dependencies": {
+    "@fabric/core": "workspace:*"
+  }
+}

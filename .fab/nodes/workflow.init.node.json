@@ -1,0 +1,20 @@
+{
+  "id": "workflow.init",
+  "name": "Init Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/cli/src/commands/init.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "init"
+  ],
+  "evidence": [
+    {
+      "file": "packages/cli/src/commands/init.ts",
+      "reason": "Folder name \"commands\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Init-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.init.summary.md"
+}

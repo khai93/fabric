@@ -1,0 +1,20 @@
+{
+  "id": "workflow.detect.package.info",
+  "name": "Detect Package Info Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/scanner/detectPackageInfo.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "detect.package.info"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/scanner/detectPackageInfo.ts",
+      "reason": "Folder name \"scanner\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Detect Package Info-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.detect.package.info.summary.md"
+}

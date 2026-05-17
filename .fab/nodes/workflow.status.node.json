@@ -1,0 +1,20 @@
+{
+  "id": "workflow.status",
+  "name": "Status Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/cli/src/commands/status.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "status"
+  ],
+  "evidence": [
+    {
+      "file": "packages/cli/src/commands/status.ts",
+      "reason": "Folder name \"commands\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Status-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.status.summary.md"
+}

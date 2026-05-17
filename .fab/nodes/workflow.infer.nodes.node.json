@@ -1,0 +1,23 @@
+{
+  "id": "workflow.infer.nodes",
+  "name": "Infer Nodes Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/nodes/inferNodes.ts"
+  ],
+  "dependsOn": [
+    "workflow.scan.repo",
+    "workflow.types"
+  ],
+  "tags": [
+    "infer.nodes"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/nodes/inferNodes.ts",
+      "reason": "Folder name \"nodes\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Infer Nodes-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.infer.nodes.summary.md"
+}
