@@ -31,6 +31,10 @@ export interface FabricNode {
   tags?: string[];
   summaryPath?: string;
   evidence?: FabricEvidence[];
+  confidence?: number;
+  generatedBy?: "static" | "ai" | "human";
+  warnings?: string[];
+  fileHashes?: Record<string, string>;
 }
 
 export interface FabricEdge {

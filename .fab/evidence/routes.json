@@ -1,0 +1,25 @@
+[
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "idHint": "route.auth",
+    "path": "/auth",
+    "line": 24,
+    "source": "app"
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "idHint": "route.get.users",
+    "method": "get",
+    "path": "/users",
+    "line": 22,
+    "source": "app"
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "idHint": "route.post.login",
+    "method": "post",
+    "path": "/login",
+    "line": 23,
+    "source": "router"
+  }
+]

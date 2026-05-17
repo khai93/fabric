@@ -1,0 +1,22 @@
+{
+  "id": "workflow.read.nodes",
+  "name": "Read Nodes Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/nodes/readNodes.ts"
+  ],
+  "dependsOn": [
+    "workflow.types"
+  ],
+  "tags": [
+    "read.nodes"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/nodes/readNodes.ts",
+      "reason": "Folder name \"nodes\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Read Nodes-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.read.nodes.summary.md"
+}

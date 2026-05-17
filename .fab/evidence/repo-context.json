@@ -1,0 +1,23 @@
+{
+  "projectName": "fabric-monorepo",
+  "projectRoot": "/home/khai/projects/fabric",
+  "sourceFileCount": 46,
+  "nodeCount": 47,
+  "edgeCount": 85,
+  "languages": [
+    "typescript"
+  ],
+  "packageManager": "bun",
+  "warnings": [
+    "Could not confidently infer a node type for packages/core/src/evidence/writeEvidence.ts.",
+    "Could not confidently infer a node type for packages/core/src/validation/validateFabric.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/authoring.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/expandNodeCode.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/findDuplicateCapability.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/getNeighbors.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/getNode.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/getOwnedFiles.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/searchNodes.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/traceDependencies.ts."
+  ]
+}

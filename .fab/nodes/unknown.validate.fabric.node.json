@@ -1,0 +1,22 @@
+{
+  "id": "unknown.validate.fabric",
+  "name": "Validate Fabric",
+  "type": "unknown",
+  "owns": [
+    "packages/core/src/validation/validateFabric.ts"
+  ],
+  "dependsOn": [
+    "workflow.read.nodes"
+  ],
+  "tags": [
+    "validate.fabric"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/validation/validateFabric.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Validate Fabric-related code.",
+  "summaryPath": ".fab/summaries/unknown.validate.fabric.summary.md"
+}

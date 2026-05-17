@@ -1,0 +1,20 @@
+[
+  {
+    "path": "packages/core/src/scanner/detectRoutes.test.ts"
+  },
+  {
+    "path": "packages/mcp/src/tools/authoring.test.ts"
+  },
+  {
+    "path": "packages/mcp/src/tools/expandNodeCode.test.ts"
+  },
+  {
+    "path": "packages/mcp/src/tools/searchNodes.test.ts"
+  },
+  {
+    "path": "packages/mcp/src/tools/traceDependencies.test.ts"
+  },
+  {
+    "path": "packages/mcp/src/utils/limitOutput.test.ts"
+  }
+]

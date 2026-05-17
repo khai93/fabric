@@ -17,6 +17,8 @@ Coordinates application entrypoint behavior for Index.
 - unknown.get.owned.files
 - unknown.search.nodes
 - unknown.trace.dependencies
+- unknown.validate.fabric
+- unknown.write.evidence
 - utility.default.config
 - utility.load.config
 - utility.load.fabric.project
@@ -24,13 +26,17 @@ Coordinates application entrypoint behavior for Index.
 - workflow.detect.imports
 - workflow.detect.routes
 - workflow.detect.tests
+- workflow.generate
 - workflow.init
 - workflow.mcp
 - workflow.read.graph
+- workflow.read.nodes
+- workflow.rebuild.graph
 - workflow.scan
 - workflow.scan.repo
 - workflow.status
 - workflow.types
+- workflow.validate
 - workflow.write.graph
 
 ## AI notes

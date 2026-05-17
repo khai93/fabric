@@ -7,6 +7,7 @@ export async function initCommand(projectRoot = process.cwd()): Promise<void> {
   const fabDirectory = join(projectRoot, ".fab");
   await mkdir(join(fabDirectory, "nodes"), { recursive: true });
   await mkdir(join(fabDirectory, "summaries"), { recursive: true });
+  await mkdir(join(fabDirectory, "evidence"), { recursive: true });
 
   await writeFile(join(fabDirectory, "FAB.md"), fabMd());
   await writeFile(join(fabDirectory, "config.json"), `${JSON.stringify(defaultConfig, null, 2)}\n`);
@@ -17,7 +18,7 @@ export async function initCommand(projectRoot = process.cwd()): Promise<void> {
     : "unknown-project";
 
   const emptyGraph: FabricGraph = {
-    version: "0.1.0",
+    version: "0.3.0",
     generatedAt: new Date(0).toISOString(),
     projectRoot,
     projectName,

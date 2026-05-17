@@ -1,0 +1,842 @@
+[
+  {
+    "file": "packages/cli/src/commands/generate.ts",
+    "specifier": "node:fs/promises",
+    "line": 1
+  },
+  {
+    "file": "packages/cli/src/commands/generate.ts",
+    "specifier": "node:path",
+    "line": 2
+  },
+  {
+    "file": "packages/cli/src/commands/init.ts",
+    "specifier": "@fabric/core",
+    "line": 4
+  },
+  {
+    "file": "packages/cli/src/commands/init.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/cli/src/commands/init.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/cli/src/commands/init.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/cli/src/commands/mcp.ts",
+    "specifier": "@fabric/mcp",
+    "line": 2
+  },
+  {
+    "file": "packages/cli/src/commands/mcp.ts",
+    "specifier": "@fabric/mcp/server",
+    "line": 1
+  },
+  {
+    "file": "packages/cli/src/commands/scan.ts",
+    "specifier": "./init",
+    "line": 4
+  },
+  {
+    "file": "packages/cli/src/commands/scan.ts",
+    "specifier": "@fabric/core",
+    "line": 3
+  },
+  {
+    "file": "packages/cli/src/commands/scan.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/cli/src/commands/scan.ts",
+    "specifier": "node:path",
+    "line": 2
+  },
+  {
+    "file": "packages/cli/src/commands/status.ts",
+    "specifier": "@fabric/core",
+    "line": 4
+  },
+  {
+    "file": "packages/cli/src/commands/status.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/cli/src/commands/status.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/cli/src/commands/status.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/cli/src/commands/validate.ts",
+    "specifier": "@fabric/core",
+    "line": 1
+  },
+  {
+    "file": "packages/cli/src/index.ts",
+    "specifier": "./commands/generate",
+    "line": 7
+  },
+  {
+    "file": "packages/cli/src/index.ts",
+    "specifier": "./commands/init",
+    "line": 2
+  },
+  {
+    "file": "packages/cli/src/index.ts",
+    "specifier": "./commands/mcp",
+    "line": 3
+  },
+  {
+    "file": "packages/cli/src/index.ts",
+    "specifier": "./commands/scan",
+    "line": 4
+  },
+  {
+    "file": "packages/cli/src/index.ts",
+    "specifier": "./commands/status",
+    "line": 5
+  },
+  {
+    "file": "packages/cli/src/index.ts",
+    "specifier": "./commands/validate",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/config/loadConfig.ts",
+    "specifier": "./defaultConfig",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/config/loadConfig.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/config/loadConfig.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/config/loadConfig.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/evidence/writeEvidence.ts",
+    "specifier": "../graph/types",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/evidence/writeEvidence.ts",
+    "specifier": "../scanner/scanRepo",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/evidence/writeEvidence.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/evidence/writeEvidence.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/evidence/writeEvidence.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/graph/buildGraph.ts",
+    "specifier": "../nodes/inferNodes",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/graph/buildGraph.ts",
+    "specifier": "../scanner/scanRepo",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/graph/buildGraph.ts",
+    "specifier": "./types",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/graph/readGraph.ts",
+    "specifier": "./types",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/graph/readGraph.ts",
+    "specifier": "node:fs/promises",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/graph/readGraph.ts",
+    "specifier": "node:path",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "specifier": "../evidence/writeEvidence",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "specifier": "../nodes/readNodes",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "specifier": "./types",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/graph/writeGraph.ts",
+    "specifier": "../nodes/writeNodes",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/graph/writeGraph.ts",
+    "specifier": "./types",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/graph/writeGraph.ts",
+    "specifier": "node:fs/promises",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/graph/writeGraph.ts",
+    "specifier": "node:path",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./config/defaultConfig",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./config/loadConfig",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./evidence/writeEvidence",
+    "line": 12
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./graph/buildGraph",
+    "line": 7
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./graph/readGraph",
+    "line": 10
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./graph/rebuildGraph",
+    "line": 8
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./graph/types",
+    "line": 14
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./graph/writeGraph",
+    "line": 9
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./nodes/readNodes",
+    "line": 11
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./scanner/detectImports",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./scanner/detectRoutes",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./scanner/detectTests",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./scanner/scanRepo",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/index.ts",
+    "specifier": "./validation/validateFabric",
+    "line": 13
+  },
+  {
+    "file": "packages/core/src/nodes/inferNodes.ts",
+    "specifier": "../graph/types",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/nodes/inferNodes.ts",
+    "specifier": "../scanner/scanRepo",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/nodes/inferNodes.ts",
+    "specifier": "node:path",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/nodes/readNodes.ts",
+    "specifier": "../graph/types",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/nodes/readNodes.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/nodes/readNodes.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/nodes/readNodes.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/nodes/writeNodes.ts",
+    "specifier": "../graph/types",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/nodes/writeNodes.ts",
+    "specifier": "../summaries/generateStaticSummaries",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/nodes/writeNodes.ts",
+    "specifier": "node:fs/promises",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/nodes/writeNodes.ts",
+    "specifier": "node:path",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/scanner/detectPackageInfo.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/scanner/detectPackageInfo.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/scanner/detectPackageInfo.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "specifier": "../repositories/user",
+    "line": 10
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "specifier": "../services/auth",
+    "line": 8
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "specifier": "./detectImports",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "specifier": "./detectRoutes",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "specifier": "./token",
+    "line": 9
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.test.ts",
+    "specifier": "bun:test",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "specifier": "../config/loadConfig",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "specifier": "./detectImports",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "specifier": "./detectPackageInfo",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "specifier": "./detectRoutes",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "specifier": "./detectTests",
+    "line": 7
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "specifier": "node:fs/promises",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "specifier": "node:path",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/summaries/generateStaticSummaries.ts",
+    "specifier": "../graph/types",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/validation/validateFabric.ts",
+    "specifier": "../nodes/readNodes",
+    "line": 4
+  },
+  {
+    "file": "packages/core/src/validation/validateFabric.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/validation/validateFabric.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/core/src/validation/validateFabric.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./server",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./tools/expandNodeCode",
+    "line": 7
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./tools/findDuplicateCapability",
+    "line": 9
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./tools/getNeighbors",
+    "line": 5
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./tools/getNode",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./tools/getOwnedFiles",
+    "line": 6
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./tools/searchNodes",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./tools/traceDependencies",
+    "line": 8
+  },
+  {
+    "file": "packages/mcp/src/index.ts",
+    "specifier": "./utils/loadFabricProject",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./tools/expandNodeCode",
+    "line": 9
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./tools/findDuplicateCapability",
+    "line": 10
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./tools/getNeighbors",
+    "line": 11
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./tools/getNode",
+    "line": 12
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./tools/getOwnedFiles",
+    "line": 13
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./tools/searchNodes",
+    "line": 14
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./tools/traceDependencies",
+    "line": 15
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "./utils/loadFabricProject",
+    "line": 16
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "@modelcontextprotocol/sdk/server/index.js",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "specifier": "@modelcontextprotocol/sdk/server/stdio.js",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.test.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 7
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.test.ts",
+    "specifier": "@fabric/core",
+    "line": 5
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.test.ts",
+    "specifier": "@fabric/core",
+    "line": 6
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.test.ts",
+    "specifier": "bun:test",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.test.ts",
+    "specifier": "node:fs",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.test.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.test.ts",
+    "specifier": "node:path",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 11
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.test.ts",
+    "specifier": "./expandNodeCode",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.test.ts",
+    "specifier": "bun:test",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.test.ts",
+    "specifier": "node:path",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "specifier": "../utils/limitOutput",
+    "line": 5
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+    "specifier": "../utils/scoreText",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+    "specifier": "./searchNodes",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/getNeighbors.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/getNeighbors.ts",
+    "specifier": "@fabric/core",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/getNode.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 5
+  },
+  {
+    "file": "packages/mcp/src/tools/getNode.ts",
+    "specifier": "@fabric/core",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/tools/getNode.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/getNode.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/getNode.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.test.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.test.ts",
+    "specifier": "./searchNodes",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.test.ts",
+    "specifier": "@fabric/core",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.test.ts",
+    "specifier": "bun:test",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 5
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "specifier": "../utils/scoreText",
+    "line": 6
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "specifier": "@fabric/core",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.test.ts",
+    "specifier": "./traceDependencies",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.test.ts",
+    "specifier": "@fabric/core",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.test.ts",
+    "specifier": "bun:test",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.ts",
+    "specifier": "../utils/loadFabricProject",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.ts",
+    "specifier": "@fabric/core",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/utils/limitOutput.test.ts",
+    "specifier": "./limitOutput",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/utils/limitOutput.test.ts",
+    "specifier": "bun:test",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/utils/loadFabricProject.ts",
+    "specifier": "@fabric/core",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/utils/loadFabricProject.ts",
+    "specifier": "node:fs",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/utils/loadFabricProject.ts",
+    "specifier": "node:fs/promises",
+    "line": 2
+  },
+  {
+    "file": "packages/mcp/src/utils/loadFabricProject.ts",
+    "specifier": "node:path",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/utils/scoreText.ts",
+    "specifier": "@fabric/core",
+    "line": 1
+  }
+]

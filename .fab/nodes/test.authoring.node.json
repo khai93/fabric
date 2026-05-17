@@ -1,0 +1,22 @@
+{
+  "id": "test.authoring",
+  "name": "Authoring Test",
+  "type": "test",
+  "owns": [
+    "packages/mcp/src/tools/authoring.test.ts"
+  ],
+  "dependsOn": [
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "authoring"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/authoring.test.ts",
+      "reason": "File path or extension indicates a test file."
+    }
+  ],
+  "description": "Covers Authoring-related behavior with tests.",
+  "summaryPath": ".fab/summaries/test.authoring.summary.md"
+}

@@ -1,0 +1,324 @@
+[
+  {
+    "path": "packages/cli/src/commands/generate.ts",
+    "isTest": false,
+    "importCount": 2,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/cli/src/commands/init.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/cli/src/commands/mcp.ts",
+    "isTest": false,
+    "importCount": 2,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/cli/src/commands/scan.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/cli/src/commands/status.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/cli/src/commands/validate.ts",
+    "isTest": false,
+    "importCount": 1,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/cli/src/index.ts",
+    "isTest": false,
+    "importCount": 6,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/config/defaultConfig.ts",
+    "isTest": false,
+    "importCount": 0,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/config/loadConfig.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/evidence/writeEvidence.ts",
+    "isTest": false,
+    "importCount": 5,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/graph/buildGraph.ts",
+    "isTest": false,
+    "importCount": 3,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/graph/readGraph.ts",
+    "isTest": false,
+    "importCount": 3,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/graph/rebuildGraph.ts",
+    "isTest": false,
+    "importCount": 6,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/graph/types.ts",
+    "isTest": false,
+    "importCount": 0,
+    "exportCount": 5,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/graph/writeGraph.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/index.ts",
+    "isTest": false,
+    "importCount": 14,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/nodes/inferNodes.ts",
+    "isTest": false,
+    "importCount": 3,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/nodes/readNodes.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/nodes/writeNodes.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/scanner/detectImports.ts",
+    "isTest": false,
+    "importCount": 0,
+    "exportCount": 4,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/scanner/detectPackageInfo.ts",
+    "isTest": false,
+    "importCount": 3,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/scanner/detectRoutes.test.ts",
+    "isTest": true,
+    "importCount": 6,
+    "exportCount": 0,
+    "routeCount": 3
+  },
+  {
+    "path": "packages/core/src/scanner/detectRoutes.ts",
+    "isTest": false,
+    "importCount": 0,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/scanner/detectTests.ts",
+    "isTest": false,
+    "importCount": 0,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/scanner/scanRepo.ts",
+    "isTest": false,
+    "importCount": 7,
+    "exportCount": 3,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/summaries/generateStaticSummaries.ts",
+    "isTest": false,
+    "importCount": 1,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/core/src/validation/validateFabric.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 3,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/index.ts",
+    "isTest": false,
+    "importCount": 9,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/server.ts",
+    "isTest": false,
+    "importCount": 10,
+    "exportCount": 1,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/authoring.test.ts",
+    "isTest": true,
+    "importCount": 7,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/authoring.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 12,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/expandNodeCode.test.ts",
+    "isTest": true,
+    "importCount": 3,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/expandNodeCode.ts",
+    "isTest": false,
+    "importCount": 5,
+    "exportCount": 4,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/findDuplicateCapability.ts",
+    "isTest": false,
+    "importCount": 3,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/getNeighbors.ts",
+    "isTest": false,
+    "importCount": 2,
+    "exportCount": 4,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/getNode.ts",
+    "isTest": false,
+    "importCount": 5,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/getOwnedFiles.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/searchNodes.test.ts",
+    "isTest": true,
+    "importCount": 4,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/searchNodes.ts",
+    "isTest": false,
+    "importCount": 6,
+    "exportCount": 5,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/traceDependencies.test.ts",
+    "isTest": true,
+    "importCount": 3,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/tools/traceDependencies.ts",
+    "isTest": false,
+    "importCount": 2,
+    "exportCount": 3,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/utils/limitOutput.test.ts",
+    "isTest": true,
+    "importCount": 2,
+    "exportCount": 0,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/utils/limitOutput.ts",
+    "isTest": false,
+    "importCount": 0,
+    "exportCount": 3,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/utils/loadFabricProject.ts",
+    "isTest": false,
+    "importCount": 4,
+    "exportCount": 2,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/mcp/src/utils/scoreText.ts",
+    "isTest": false,
+    "importCount": 1,
+    "exportCount": 4,
+    "routeCount": 0
+  },
+  {
+    "path": "packages/types.d.ts",
+    "isTest": false,
+    "importCount": 0,
+    "exportCount": 20,
+    "routeCount": 0
+  }
+]

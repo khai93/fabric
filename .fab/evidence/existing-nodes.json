@@ -1,0 +1,591 @@
+[
+  {
+    "id": "app.index",
+    "name": "Index App",
+    "type": "app",
+    "owns": [
+      "packages/cli/src/index.ts",
+      "packages/core/src/index.ts",
+      "packages/mcp/src/index.ts"
+    ],
+    "dependsOn": [
+      "app.server",
+      "unknown.expand.node.code",
+      "unknown.find.duplicate.capability",
+      "unknown.get.neighbors",
+      "unknown.get.node",
+      "unknown.get.owned.files",
+      "unknown.search.nodes",
+      "unknown.trace.dependencies",
+      "unknown.validate.fabric",
+      "unknown.write.evidence",
+      "utility.default.config",
+      "utility.load.config",
+      "utility.load.fabric.project",
+      "workflow.build.graph",
+      "workflow.detect.imports",
+      "workflow.detect.routes",
+      "workflow.detect.tests",
+      "workflow.generate",
+      "workflow.init",
+      "workflow.mcp",
+      "workflow.read.graph",
+      "workflow.read.nodes",
+      "workflow.rebuild.graph",
+      "workflow.scan",
+      "workflow.scan.repo",
+      "workflow.status",
+      "workflow.types",
+      "workflow.validate",
+      "workflow.write.graph"
+    ],
+    "summaryPath": ".fab/summaries/app.index.summary.md"
+  },
+  {
+    "id": "app.server",
+    "name": "Server App",
+    "type": "app",
+    "owns": [
+      "packages/mcp/src/server.ts"
+    ],
+    "dependsOn": [
+      "unknown.expand.node.code",
+      "unknown.find.duplicate.capability",
+      "unknown.get.neighbors",
+      "unknown.get.node",
+      "unknown.get.owned.files",
+      "unknown.search.nodes",
+      "unknown.trace.dependencies",
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/app.server.summary.md"
+  },
+  {
+    "id": "route.auth",
+    "name": "Auth Route",
+    "type": "route",
+    "owns": [
+      "packages/core/src/scanner/detectRoutes.test.ts"
+    ],
+    "dependsOn": [
+      "test.detect.routes"
+    ],
+    "summaryPath": ".fab/summaries/route.auth.summary.md"
+  },
+  {
+    "id": "route.get.users",
+    "name": "Get Users Route",
+    "type": "route",
+    "owns": [
+      "packages/core/src/scanner/detectRoutes.test.ts"
+    ],
+    "dependsOn": [
+      "test.detect.routes"
+    ],
+    "summaryPath": ".fab/summaries/route.get.users.summary.md"
+  },
+  {
+    "id": "route.post.login",
+    "name": "Post Login Route",
+    "type": "route",
+    "owns": [
+      "packages/core/src/scanner/detectRoutes.test.ts"
+    ],
+    "dependsOn": [
+      "test.detect.routes"
+    ],
+    "summaryPath": ".fab/summaries/route.post.login.summary.md"
+  },
+  {
+    "id": "test.authoring",
+    "name": "Authoring Test",
+    "type": "test",
+    "owns": [
+      "packages/mcp/src/tools/authoring.test.ts"
+    ],
+    "dependsOn": [
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/test.authoring.summary.md"
+  },
+  {
+    "id": "test.detect.routes",
+    "name": "Detect Routes Test",
+    "type": "test",
+    "owns": [
+      "packages/core/src/scanner/detectRoutes.test.ts"
+    ],
+    "dependsOn": [
+      "workflow.detect.imports",
+      "workflow.detect.routes"
+    ],
+    "summaryPath": ".fab/summaries/test.detect.routes.summary.md"
+  },
+  {
+    "id": "test.expand.node.code",
+    "name": "Expand Node Code Test",
+    "type": "test",
+    "owns": [
+      "packages/mcp/src/tools/expandNodeCode.test.ts"
+    ],
+    "dependsOn": [
+      "unknown.expand.node.code"
+    ],
+    "summaryPath": ".fab/summaries/test.expand.node.code.summary.md"
+  },
+  {
+    "id": "test.limit.output",
+    "name": "Limit Output Test",
+    "type": "test",
+    "owns": [
+      "packages/mcp/src/utils/limitOutput.test.ts"
+    ],
+    "dependsOn": [
+      "utility.limit.output"
+    ],
+    "summaryPath": ".fab/summaries/test.limit.output.summary.md"
+  },
+  {
+    "id": "test.search.nodes",
+    "name": "Search Nodes Test",
+    "type": "test",
+    "owns": [
+      "packages/mcp/src/tools/searchNodes.test.ts"
+    ],
+    "dependsOn": [
+      "unknown.search.nodes",
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/test.search.nodes.summary.md"
+  },
+  {
+    "id": "test.trace.dependencies",
+    "name": "Trace Dependencies Test",
+    "type": "test",
+    "owns": [
+      "packages/mcp/src/tools/traceDependencies.test.ts"
+    ],
+    "dependsOn": [
+      "unknown.trace.dependencies"
+    ],
+    "summaryPath": ".fab/summaries/test.trace.dependencies.summary.md"
+  },
+  {
+    "id": "unknown.authoring",
+    "name": "Authoring",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/authoring.ts"
+    ],
+    "dependsOn": [
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/unknown.authoring.summary.md"
+  },
+  {
+    "id": "unknown.expand.node.code",
+    "name": "Expand Node Code",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/expandNodeCode.ts"
+    ],
+    "dependsOn": [
+      "utility.limit.output",
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/unknown.expand.node.code.summary.md"
+  },
+  {
+    "id": "unknown.find.duplicate.capability",
+    "name": "Find Duplicate Capability",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/findDuplicateCapability.ts"
+    ],
+    "dependsOn": [
+      "unknown.search.nodes",
+      "utility.load.fabric.project",
+      "utility.score.text"
+    ],
+    "summaryPath": ".fab/summaries/unknown.find.duplicate.capability.summary.md"
+  },
+  {
+    "id": "unknown.get.neighbors",
+    "name": "Get Neighbors",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/getNeighbors.ts"
+    ],
+    "dependsOn": [
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/unknown.get.neighbors.summary.md"
+  },
+  {
+    "id": "unknown.get.node",
+    "name": "Get Node",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/getNode.ts"
+    ],
+    "dependsOn": [
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/unknown.get.node.summary.md"
+  },
+  {
+    "id": "unknown.get.owned.files",
+    "name": "Get Owned Files",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/getOwnedFiles.ts"
+    ],
+    "dependsOn": [
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/unknown.get.owned.files.summary.md"
+  },
+  {
+    "id": "unknown.search.nodes",
+    "name": "Search Nodes",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/searchNodes.ts"
+    ],
+    "dependsOn": [
+      "utility.load.fabric.project",
+      "utility.score.text"
+    ],
+    "summaryPath": ".fab/summaries/unknown.search.nodes.summary.md"
+  },
+  {
+    "id": "unknown.trace.dependencies",
+    "name": "Trace Dependencies",
+    "type": "unknown",
+    "owns": [
+      "packages/mcp/src/tools/traceDependencies.ts"
+    ],
+    "dependsOn": [
+      "utility.load.fabric.project"
+    ],
+    "summaryPath": ".fab/summaries/unknown.trace.dependencies.summary.md"
+  },
+  {
+    "id": "unknown.validate.fabric",
+    "name": "Validate Fabric",
+    "type": "unknown",
+    "owns": [
+      "packages/core/src/validation/validateFabric.ts"
+    ],
+    "dependsOn": [
+      "workflow.read.nodes"
+    ],
+    "summaryPath": ".fab/summaries/unknown.validate.fabric.summary.md"
+  },
+  {
+    "id": "unknown.write.evidence",
+    "name": "Write Evidence",
+    "type": "unknown",
+    "owns": [
+      "packages/core/src/evidence/writeEvidence.ts"
+    ],
+    "dependsOn": [
+      "workflow.scan.repo",
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/unknown.write.evidence.summary.md"
+  },
+  {
+    "id": "utility.default.config",
+    "name": "Default Config Utility",
+    "type": "utility",
+    "owns": [
+      "packages/core/src/config/defaultConfig.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/utility.default.config.summary.md"
+  },
+  {
+    "id": "utility.generate.static.summaries",
+    "name": "Generate Static Summaries Utility",
+    "type": "utility",
+    "owns": [
+      "packages/core/src/summaries/generateStaticSummaries.ts"
+    ],
+    "dependsOn": [
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/utility.generate.static.summaries.summary.md"
+  },
+  {
+    "id": "utility.limit.output",
+    "name": "Limit Output Utility",
+    "type": "utility",
+    "owns": [
+      "packages/mcp/src/utils/limitOutput.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/utility.limit.output.summary.md"
+  },
+  {
+    "id": "utility.load.config",
+    "name": "Load Config Utility",
+    "type": "utility",
+    "owns": [
+      "packages/core/src/config/loadConfig.ts"
+    ],
+    "dependsOn": [
+      "utility.default.config"
+    ],
+    "summaryPath": ".fab/summaries/utility.load.config.summary.md"
+  },
+  {
+    "id": "utility.load.fabric.project",
+    "name": "Load Fabric Project Utility",
+    "type": "utility",
+    "owns": [
+      "packages/mcp/src/utils/loadFabricProject.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/utility.load.fabric.project.summary.md"
+  },
+  {
+    "id": "utility.score.text",
+    "name": "Score Text Utility",
+    "type": "utility",
+    "owns": [
+      "packages/mcp/src/utils/scoreText.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/utility.score.text.summary.md"
+  },
+  {
+    "id": "utility.types",
+    "name": "Types Utility",
+    "type": "utility",
+    "owns": [
+      "packages/types.d.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/utility.types.summary.md"
+  },
+  {
+    "id": "workflow.build.graph",
+    "name": "Build Graph Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/graph/buildGraph.ts"
+    ],
+    "dependsOn": [
+      "workflow.infer.nodes",
+      "workflow.scan.repo",
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/workflow.build.graph.summary.md"
+  },
+  {
+    "id": "workflow.detect.imports",
+    "name": "Detect Imports Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/scanner/detectImports.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.detect.imports.summary.md"
+  },
+  {
+    "id": "workflow.detect.package.info",
+    "name": "Detect Package Info Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/scanner/detectPackageInfo.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.detect.package.info.summary.md"
+  },
+  {
+    "id": "workflow.detect.routes",
+    "name": "Detect Routes Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/scanner/detectRoutes.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.detect.routes.summary.md"
+  },
+  {
+    "id": "workflow.detect.tests",
+    "name": "Detect Tests Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/scanner/detectTests.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.detect.tests.summary.md"
+  },
+  {
+    "id": "workflow.generate",
+    "name": "Generate Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/cli/src/commands/generate.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.generate.summary.md"
+  },
+  {
+    "id": "workflow.infer.nodes",
+    "name": "Infer Nodes Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/nodes/inferNodes.ts"
+    ],
+    "dependsOn": [
+      "workflow.scan.repo",
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/workflow.infer.nodes.summary.md"
+  },
+  {
+    "id": "workflow.init",
+    "name": "Init Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/cli/src/commands/init.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.init.summary.md"
+  },
+  {
+    "id": "workflow.mcp",
+    "name": "Mcp Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/cli/src/commands/mcp.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.mcp.summary.md"
+  },
+  {
+    "id": "workflow.read.graph",
+    "name": "Read Graph Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/graph/readGraph.ts"
+    ],
+    "dependsOn": [
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/workflow.read.graph.summary.md"
+  },
+  {
+    "id": "workflow.read.nodes",
+    "name": "Read Nodes Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/nodes/readNodes.ts"
+    ],
+    "dependsOn": [
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/workflow.read.nodes.summary.md"
+  },
+  {
+    "id": "workflow.rebuild.graph",
+    "name": "Rebuild Graph Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/graph/rebuildGraph.ts"
+    ],
+    "dependsOn": [
+      "unknown.write.evidence",
+      "workflow.read.nodes",
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/workflow.rebuild.graph.summary.md"
+  },
+  {
+    "id": "workflow.scan",
+    "name": "Scan Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/cli/src/commands/scan.ts"
+    ],
+    "dependsOn": [
+      "workflow.init"
+    ],
+    "summaryPath": ".fab/summaries/workflow.scan.summary.md"
+  },
+  {
+    "id": "workflow.scan.repo",
+    "name": "Scan Repo Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/scanner/scanRepo.ts"
+    ],
+    "dependsOn": [
+      "utility.load.config",
+      "workflow.detect.imports",
+      "workflow.detect.package.info",
+      "workflow.detect.routes",
+      "workflow.detect.tests"
+    ],
+    "summaryPath": ".fab/summaries/workflow.scan.repo.summary.md"
+  },
+  {
+    "id": "workflow.status",
+    "name": "Status Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/cli/src/commands/status.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.status.summary.md"
+  },
+  {
+    "id": "workflow.types",
+    "name": "Types Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/graph/types.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.types.summary.md"
+  },
+  {
+    "id": "workflow.validate",
+    "name": "Validate Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/cli/src/commands/validate.ts"
+    ],
+    "dependsOn": [],
+    "summaryPath": ".fab/summaries/workflow.validate.summary.md"
+  },
+  {
+    "id": "workflow.write.graph",
+    "name": "Write Graph Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/graph/writeGraph.ts"
+    ],
+    "dependsOn": [
+      "workflow.types",
+      "workflow.write.nodes"
+    ],
+    "summaryPath": ".fab/summaries/workflow.write.graph.summary.md"
+  },
+  {
+    "id": "workflow.write.nodes",
+    "name": "Write Nodes Workflow",
+    "type": "workflow",
+    "owns": [
+      "packages/core/src/nodes/writeNodes.ts"
+    ],
+    "dependsOn": [
+      "utility.generate.static.summaries",
+      "workflow.types"
+    ],
+    "summaryPath": ".fab/summaries/workflow.write.nodes.summary.md"
+  }
+]

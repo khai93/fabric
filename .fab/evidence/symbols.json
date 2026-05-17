@@ -1,0 +1,527 @@
+[
+  {
+    "file": "packages/cli/src/commands/generate.ts",
+    "symbol": "generateCommand",
+    "line": 4
+  },
+  {
+    "file": "packages/cli/src/commands/init.ts",
+    "symbol": "initCommand",
+    "line": 6
+  },
+  {
+    "file": "packages/cli/src/commands/mcp.ts",
+    "symbol": "mcpCommand",
+    "line": 4
+  },
+  {
+    "file": "packages/cli/src/commands/scan.ts",
+    "symbol": "scanCommand",
+    "line": 6
+  },
+  {
+    "file": "packages/cli/src/commands/status.ts",
+    "symbol": "statusCommand",
+    "line": 6
+  },
+  {
+    "file": "packages/cli/src/commands/validate.ts",
+    "symbol": "validateCommand",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/config/defaultConfig.ts",
+    "symbol": "defaultConfig",
+    "line": 9
+  },
+  {
+    "file": "packages/core/src/config/defaultConfig.ts",
+    "symbol": "FabricConfig",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/config/loadConfig.ts",
+    "symbol": "loadConfig",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/evidence/writeEvidence.ts",
+    "symbol": "writeEvidence",
+    "line": 7
+  },
+  {
+    "file": "packages/core/src/evidence/writeEvidence.ts",
+    "symbol": "writeExistingNodesEvidence",
+    "line": 27
+  },
+  {
+    "file": "packages/core/src/graph/buildGraph.ts",
+    "symbol": "buildGraph",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/graph/readGraph.ts",
+    "symbol": "readGraph",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "symbol": "rebuildGraphFromNodeFiles",
+    "line": 17
+  },
+  {
+    "file": "packages/core/src/graph/rebuildGraph.ts",
+    "symbol": "RebuildGraphResult",
+    "line": 8
+  },
+  {
+    "file": "packages/core/src/graph/types.ts",
+    "symbol": "FabricEdge",
+    "line": 40
+  },
+  {
+    "file": "packages/core/src/graph/types.ts",
+    "symbol": "FabricEvidence",
+    "line": 15
+  },
+  {
+    "file": "packages/core/src/graph/types.ts",
+    "symbol": "FabricGraph",
+    "line": 53
+  },
+  {
+    "file": "packages/core/src/graph/types.ts",
+    "symbol": "FabricNode",
+    "line": 22
+  },
+  {
+    "file": "packages/core/src/graph/types.ts",
+    "symbol": "FabricNodeType",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/graph/writeGraph.ts",
+    "symbol": "writeGraph",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/nodes/inferNodes.ts",
+    "symbol": "inferNodes",
+    "line": 39
+  },
+  {
+    "file": "packages/core/src/nodes/inferNodes.ts",
+    "symbol": "InferredGraphParts",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/nodes/readNodes.ts",
+    "symbol": "readNodeFiles",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/nodes/writeNodes.ts",
+    "symbol": "writeNodes",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/scanner/detectImports.ts",
+    "symbol": "DetectedExport",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/scanner/detectImports.ts",
+    "symbol": "DetectedImport",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/scanner/detectImports.ts",
+    "symbol": "detectExports",
+    "line": 35
+  },
+  {
+    "file": "packages/core/src/scanner/detectImports.ts",
+    "symbol": "detectImports",
+    "line": 11
+  },
+  {
+    "file": "packages/core/src/scanner/detectPackageInfo.ts",
+    "symbol": "detectPackageInfo",
+    "line": 11
+  },
+  {
+    "file": "packages/core/src/scanner/detectPackageInfo.ts",
+    "symbol": "PackageInfo",
+    "line": 5
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.ts",
+    "symbol": "DetectedRoute",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/scanner/detectRoutes.ts",
+    "symbol": "detectRoutes",
+    "line": 11
+  },
+  {
+    "file": "packages/core/src/scanner/detectTests.ts",
+    "symbol": "isTestFile",
+    "line": 1
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "symbol": "scanRepo",
+    "line": 28
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "symbol": "ScanResult",
+    "line": 18
+  },
+  {
+    "file": "packages/core/src/scanner/scanRepo.ts",
+    "symbol": "SourceFileInfo",
+    "line": 9
+  },
+  {
+    "file": "packages/core/src/summaries/generateStaticSummaries.ts",
+    "symbol": "generateStaticSummary",
+    "line": 3
+  },
+  {
+    "file": "packages/core/src/validation/validateFabric.ts",
+    "symbol": "FabricValidationIssue",
+    "line": 6
+  },
+  {
+    "file": "packages/core/src/validation/validateFabric.ts",
+    "symbol": "FabricValidationResult",
+    "line": 13
+  },
+  {
+    "file": "packages/core/src/validation/validateFabric.ts",
+    "symbol": "validateFabric",
+    "line": 21
+  },
+  {
+    "file": "packages/mcp/src/server.ts",
+    "symbol": "startMcpServer",
+    "line": 52
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "deleteNode",
+    "line": 254
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "getEvidence",
+    "line": 97
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "getGenerationInstructions",
+    "line": 287
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "getNodeSchema",
+    "line": 153
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "getRepoContext",
+    "line": 39
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "listEvidenceFiles",
+    "line": 75
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "listNodes",
+    "line": 139
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "rebuildGraph",
+    "line": 279
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "validate",
+    "line": 283
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "validNodeTypes",
+    "line": 13
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "writeNode",
+    "line": 195
+  },
+  {
+    "file": "packages/mcp/src/tools/authoring.ts",
+    "symbol": "writeSummary",
+    "line": 223
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "symbol": "ExpandedFile",
+    "line": 12
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "symbol": "expandNodeCode",
+    "line": 23
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "symbol": "ExpandNodeCodeInput",
+    "line": 7
+  },
+  {
+    "file": "packages/mcp/src/tools/expandNodeCode.ts",
+    "symbol": "safeProjectFile",
+    "line": 78
+  },
+  {
+    "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+    "symbol": "findDuplicateCapability",
+    "line": 10
+  },
+  {
+    "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+    "symbol": "FindDuplicateCapabilityInput",
+    "line": 5
+  },
+  {
+    "file": "packages/mcp/src/tools/getNeighbors.ts",
+    "symbol": "getNeighbors",
+    "line": 21
+  },
+  {
+    "file": "packages/mcp/src/tools/getNeighbors.ts",
+    "symbol": "GetNeighborsInput",
+    "line": 6
+  },
+  {
+    "file": "packages/mcp/src/tools/getNeighbors.ts",
+    "symbol": "Neighbor",
+    "line": 12
+  },
+  {
+    "file": "packages/mcp/src/tools/getNeighbors.ts",
+    "symbol": "NeighborDirection",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/tools/getNode.ts",
+    "symbol": "getNode",
+    "line": 11
+  },
+  {
+    "file": "packages/mcp/src/tools/getNode.ts",
+    "symbol": "GetNodeInput",
+    "line": 7
+  },
+  {
+    "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+    "symbol": "getOwnedFiles",
+    "line": 10
+  },
+  {
+    "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+    "symbol": "GetOwnedFilesInput",
+    "line": 6
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "symbol": "normalizeLimit",
+    "line": 42
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "symbol": "readNodeSummaries",
+    "line": 50
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "symbol": "searchNodes",
+    "line": 23
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "symbol": "SearchNodesInput",
+    "line": 8
+  },
+  {
+    "file": "packages/mcp/src/tools/searchNodes.ts",
+    "symbol": "SearchNodesMatch",
+    "line": 13
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.ts",
+    "symbol": "bfs",
+    "line": 43
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.ts",
+    "symbol": "traceDependencies",
+    "line": 10
+  },
+  {
+    "file": "packages/mcp/src/tools/traceDependencies.ts",
+    "symbol": "TraceDependenciesInput",
+    "line": 4
+  },
+  {
+    "file": "packages/mcp/src/utils/limitOutput.ts",
+    "symbol": "clampMaxBytes",
+    "line": 7
+  },
+  {
+    "file": "packages/mcp/src/utils/limitOutput.ts",
+    "symbol": "LimitedText",
+    "line": 1
+  },
+  {
+    "file": "packages/mcp/src/utils/limitOutput.ts",
+    "symbol": "limitUtf8",
+    "line": 15
+  },
+  {
+    "file": "packages/mcp/src/utils/loadFabricProject.ts",
+    "symbol": "LoadedFabricProject",
+    "line": 6
+  },
+  {
+    "file": "packages/mcp/src/utils/loadFabricProject.ts",
+    "symbol": "loadFabricProject",
+    "line": 15
+  },
+  {
+    "file": "packages/mcp/src/utils/scoreText.ts",
+    "symbol": "NodeScore",
+    "line": 3
+  },
+  {
+    "file": "packages/mcp/src/utils/scoreText.ts",
+    "symbol": "scoreNode",
+    "line": 17
+  },
+  {
+    "file": "packages/mcp/src/utils/scoreText.ts",
+    "symbol": "SearchableNode",
+    "line": 8
+  },
+  {
+    "file": "packages/mcp/src/utils/scoreText.ts",
+    "symbol": "tokenize",
+    "line": 13
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "basename",
+    "line": 28
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "describe",
+    "line": 43
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "Dirent",
+    "line": 20
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "dirname",
+    "line": 29
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "existsSync",
+    "line": 8
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "expect",
+    "line": 45
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "extname",
+    "line": 30
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "join",
+    "line": 31
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "mkdir",
+    "line": 12
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "posix",
+    "line": 35
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "readdir",
+    "line": 17
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "readdir",
+    "line": 18
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "readFile",
+    "line": 13
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "relative",
+    "line": 32
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "resolve",
+    "line": 33
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "sep",
+    "line": 34
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "stat",
+    "line": 14
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "test",
+    "line": 44
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "unlink",
+    "line": 15
+  },
+  {
+    "file": "packages/types.d.ts",
+    "symbol": "writeFile",
+    "line": 16
+  }
+]

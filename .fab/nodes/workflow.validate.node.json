@@ -1,0 +1,20 @@
+{
+  "id": "workflow.validate",
+  "name": "Validate Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/cli/src/commands/validate.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "validate"
+  ],
+  "evidence": [
+    {
+      "file": "packages/cli/src/commands/validate.ts",
+      "reason": "Folder name \"commands\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Validate-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.validate.summary.md"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "workflow.rebuild.graph",
+  "name": "Rebuild Graph Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/core/src/graph/rebuildGraph.ts"
+  ],
+  "dependsOn": [
+    "unknown.write.evidence",
+    "workflow.read.nodes",
+    "workflow.types"
+  ],
+  "tags": [
+    "rebuild.graph"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/graph/rebuildGraph.ts",
+      "reason": "Folder name \"graph\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Rebuild Graph-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.rebuild.graph.summary.md"
+}

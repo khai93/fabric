@@ -8,6 +8,8 @@
     "unknown.get.owned.files",
     "unknown.search.nodes",
     "unknown.trace.dependencies",
+    "unknown.validate.fabric",
+    "unknown.write.evidence",
     "utility.default.config",
     "utility.load.config",
     "utility.load.fabric.project",
@@ -15,13 +17,17 @@
     "workflow.detect.imports",
     "workflow.detect.routes",
     "workflow.detect.tests",
+    "workflow.generate",
     "workflow.init",
     "workflow.mcp",
     "workflow.read.graph",
+    "workflow.read.nodes",
+    "workflow.rebuild.graph",
     "workflow.scan",
     "workflow.scan.repo",
     "workflow.status",
     "workflow.types",
+    "workflow.validate",
     "workflow.write.graph"
   ],
   "app.server": [
@@ -43,6 +49,9 @@
   "route.post.login": [
     "test.detect.routes"
   ],
+  "test.authoring": [
+    "utility.load.fabric.project"
+  ],
   "test.detect.routes": [
     "workflow.detect.imports",
     "workflow.detect.routes"
@@ -59,6 +68,9 @@
   ],
   "test.trace.dependencies": [
     "unknown.trace.dependencies"
+  ],
+  "unknown.authoring": [
+    "utility.load.fabric.project"
   ],
   "unknown.expand.node.code": [
     "utility.limit.output",
@@ -85,6 +97,13 @@
   "unknown.trace.dependencies": [
     "utility.load.fabric.project"
   ],
+  "unknown.validate.fabric": [
+    "workflow.read.nodes"
+  ],
+  "unknown.write.evidence": [
+    "workflow.scan.repo",
+    "workflow.types"
+  ],
   "utility.default.config": [],
   "utility.generate.static.summaries": [
     "workflow.types"
@@ -105,6 +124,7 @@
   "workflow.detect.package.info": [],
   "workflow.detect.routes": [],
   "workflow.detect.tests": [],
+  "workflow.generate": [],
   "workflow.infer.nodes": [
     "workflow.scan.repo",
     "workflow.types"
@@ -112,6 +132,14 @@
   "workflow.init": [],
   "workflow.mcp": [],
   "workflow.read.graph": [
+    "workflow.types"
+  ],
+  "workflow.read.nodes": [
+    "workflow.types"
+  ],
+  "workflow.rebuild.graph": [
+    "unknown.write.evidence",
+    "workflow.read.nodes",
     "workflow.types"
   ],
   "workflow.scan": [
@@ -126,6 +154,7 @@
   ],
   "workflow.status": [],
   "workflow.types": [],
+  "workflow.validate": [],
   "workflow.write.graph": [
     "workflow.types",
     "workflow.write.nodes"

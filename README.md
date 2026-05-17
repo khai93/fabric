@@ -33,6 +33,8 @@ bun run packages/cli/src/index.ts init
 bun run packages/cli/src/index.ts scan
 bun run packages/cli/src/index.ts status
 bun run packages/cli/src/index.ts mcp
+bun run packages/cli/src/index.ts validate
+bun run packages/cli/src/index.ts generate --prompt
 ```
 
 The root shortcut also works:
@@ -42,6 +44,8 @@ bun run dev -- init
 bun run dev -- scan
 bun run dev -- status
 bun run dev -- mcp
+bun run dev -- validate
+bun run dev -- generate --prompt
 ```
 
 ## Commands
@@ -55,6 +59,7 @@ Creates the initial `.fab/` overlay:
   FAB.md
   config.json
   graph.json
+  evidence/
   nodes/
   summaries/
   ownership-map.json
@@ -73,6 +78,7 @@ Generated output includes:
 .fab/graph.json
 .fab/ownership-map.json
 .fab/dependency-map.json
+.fab/evidence/*.json
 .fab/nodes/*.node.json
 .fab/summaries/*.summary.md
 ```
@@ -83,7 +89,7 @@ Prints project name, `.fab/` availability, scanned source file count, generated 
 
 ### `fabric mcp`
 
-Starts the Fabric v0.2 MCP server over stdio. The server reads the generated `.fab/` overlay from the current working directory and exposes architecture traversal tools to external AI coding agents.
+Starts the Fabric v0.3 MCP server over stdio. The server reads the generated `.fab/` overlay from the current working directory and exposes architecture traversal and authoring tools to external AI coding agents.
 
 Prepare a project first:
 
@@ -120,8 +126,67 @@ AI agents can call tools such as:
 - `fabric.expand_node_code`
 - `fabric.trace_dependencies`
 - `fabric.find_duplicate_capability`
+- `fabric.get_repo_context`
+- `fabric.get_evidence`
+- `fabric.get_node_schema`
+- `fabric.write_node`
+- `fabric.write_summary`
+- `fabric.rebuild_graph`
+- `fabric.validate`
+- `fabric.get_generation_instructions`
 
 MCP stdout is reserved for the stdio protocol. Logs and diagnostics must go to stderr.
+
+### `fabric validate`
+
+Validates the `.fab/` overlay. It catches missing owned files, unknown dependency node IDs, missing summaries, and missing evidence. MCP clients receive structured JSON from `fabric.validate`; the CLI prints human-readable output.
+
+### `fabric generate --prompt`
+
+Writes `.fab/prompts/generate-nodes.md` as a fallback prompt. Prefer MCP-assisted generation when the AI client supports Fabric MCP tools.
+
+## v0.3 MCP-assisted node generation
+
+Fabric lets your AI client generate semantic architecture nodes through MCP.
+
+```bash
+fab init
+fab scan
+fab mcp
+```
+
+Then ask your AI client:
+
+```txt
+Use the Fabric MCP server to generate semantic architecture nodes for this repository. Read the evidence, create capability-level nodes, write summaries, rebuild the graph, and validate the result.
+```
+
+The AI should use Fabric MCP tools instead of directly editing `.fab` files.
+
+Useful MCP tools:
+
+- `fabric.get_repo_context`
+- `fabric.get_evidence`
+- `fabric.get_node_schema`
+- `fabric.write_node`
+- `fabric.write_summary`
+- `fabric.rebuild_graph`
+- `fabric.validate`
+- `fabric.get_generation_instructions`
+
+Example MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "fabric": {
+      "command": "bun",
+      "args": ["run", "packages/cli/src/index.ts", "mcp"],
+      "cwd": "/absolute/path/to/project"
+    }
+  }
+}
+```
 
 ## Example Node Summary
 

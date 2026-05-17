@@ -12,15 +12,15 @@ export interface LoadedFabricProject {
   dependencyMap?: unknown;
 }
 
-const missingGraphMessage = "Fabric graph not found. Run `fabric init` and `fabric scan` first.";
-
 export async function loadFabricProject(cwd: string): Promise<LoadedFabricProject> {
   const projectRoot = cwd;
   const fabDir = join(projectRoot, ".fab");
   const graphPath = join(fabDir, "graph.json");
 
   if (!existsSync(graphPath)) {
-    throw new Error(missingGraphMessage);
+    throw new Error(`Fabric graph not found.
+Run \`fabric init\` and \`fabric scan\` first.
+Expected: ${graphPath}`);
   }
 
   const graph = parseGraph(await readJson(graphPath), graphPath);

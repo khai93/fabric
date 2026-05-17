@@ -1,0 +1,22 @@
+{
+  "id": "unknown.authoring",
+  "name": "Authoring",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/authoring.ts"
+  ],
+  "dependsOn": [
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "authoring"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/authoring.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Authoring-related code.",
+  "summaryPath": ".fab/summaries/unknown.authoring.summary.md"
+}

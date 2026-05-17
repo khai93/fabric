@@ -6,7 +6,7 @@ export function buildGraph(scan: ScanResult): FabricGraph {
   const inferred = inferNodes(scan);
 
   return {
-    version: "0.1.0",
+    version: "0.3.0",
     generatedAt: new Date(0).toISOString(),
     projectRoot: scan.projectRoot,
     projectName: scan.packageInfo.name,

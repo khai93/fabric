@@ -1,0 +1,23 @@
+{
+  "id": "unknown.write.evidence",
+  "name": "Write Evidence",
+  "type": "unknown",
+  "owns": [
+    "packages/core/src/evidence/writeEvidence.ts"
+  ],
+  "dependsOn": [
+    "workflow.scan.repo",
+    "workflow.types"
+  ],
+  "tags": [
+    "write.evidence"
+  ],
+  "evidence": [
+    {
+      "file": "packages/core/src/evidence/writeEvidence.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Write Evidence-related code.",
+  "summaryPath": ".fab/summaries/unknown.write.evidence.summary.md"
+}

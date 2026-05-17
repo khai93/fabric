@@ -1,9 +1,9 @@
 {
-  "version": "0.1.0",
+  "version": "0.3.0",
   "generatedAt": "1970-01-01T00:00:00.000Z",
   "projectRoot": "/home/khai/projects/fabric",
   "projectName": "fabric-monorepo",
-  "filesScanned": 38,
+  "filesScanned": 46,
   "nodes": [
     {
       "id": "app.index",
@@ -23,6 +23,8 @@
         "unknown.get.owned.files",
         "unknown.search.nodes",
         "unknown.trace.dependencies",
+        "unknown.validate.fabric",
+        "unknown.write.evidence",
         "utility.default.config",
         "utility.load.config",
         "utility.load.fabric.project",
@@ -30,13 +32,17 @@
         "workflow.detect.imports",
         "workflow.detect.routes",
         "workflow.detect.tests",
+        "workflow.generate",
         "workflow.init",
         "workflow.mcp",
         "workflow.read.graph",
+        "workflow.read.nodes",
+        "workflow.rebuild.graph",
         "workflow.scan",
         "workflow.scan.repo",
         "workflow.status",
         "workflow.types",
+        "workflow.validate",
         "workflow.write.graph"
       ],
       "tags": [
@@ -164,6 +170,28 @@
       "summaryPath": ".fab/summaries/route.post.login.summary.md"
     },
     {
+      "id": "test.authoring",
+      "name": "Authoring Test",
+      "type": "test",
+      "owns": [
+        "packages/mcp/src/tools/authoring.test.ts"
+      ],
+      "dependsOn": [
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "authoring"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/authoring.test.ts",
+          "reason": "File path or extension indicates a test file."
+        }
+      ],
+      "description": "Covers Authoring-related behavior with tests.",
+      "summaryPath": ".fab/summaries/test.authoring.summary.md"
+    },
+    {
       "id": "test.detect.routes",
       "name": "Detect Routes Test",
       "type": "test",
@@ -274,6 +302,28 @@
       ],
       "description": "Covers Trace Dependencies-related behavior with tests.",
       "summaryPath": ".fab/summaries/test.trace.dependencies.summary.md"
+    },
+    {
+      "id": "unknown.authoring",
+      "name": "Authoring",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/authoring.ts"
+      ],
+      "dependsOn": [
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "authoring"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/authoring.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Authoring-related code.",
+      "summaryPath": ".fab/summaries/unknown.authoring.summary.md"
     },
     {
       "id": "unknown.expand.node.code",
@@ -432,6 +482,51 @@
       ],
       "description": "Represents inferred Trace Dependencies-related code.",
       "summaryPath": ".fab/summaries/unknown.trace.dependencies.summary.md"
+    },
+    {
+      "id": "unknown.validate.fabric",
+      "name": "Validate Fabric",
+      "type": "unknown",
+      "owns": [
+        "packages/core/src/validation/validateFabric.ts"
+      ],
+      "dependsOn": [
+        "workflow.read.nodes"
+      ],
+      "tags": [
+        "validate.fabric"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/validation/validateFabric.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Validate Fabric-related code.",
+      "summaryPath": ".fab/summaries/unknown.validate.fabric.summary.md"
+    },
+    {
+      "id": "unknown.write.evidence",
+      "name": "Write Evidence",
+      "type": "unknown",
+      "owns": [
+        "packages/core/src/evidence/writeEvidence.ts"
+      ],
+      "dependsOn": [
+        "workflow.scan.repo",
+        "workflow.types"
+      ],
+      "tags": [
+        "write.evidence"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/evidence/writeEvidence.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Write Evidence-related code.",
+      "summaryPath": ".fab/summaries/unknown.write.evidence.summary.md"
     },
     {
       "id": "utility.default.config",
@@ -682,6 +777,26 @@
       "summaryPath": ".fab/summaries/workflow.detect.tests.summary.md"
     },
     {
+      "id": "workflow.generate",
+      "name": "Generate Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/cli/src/commands/generate.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "generate"
+      ],
+      "evidence": [
+        {
+          "file": "packages/cli/src/commands/generate.ts",
+          "reason": "Folder name \"commands\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Generate-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.generate.summary.md"
+    },
+    {
       "id": "workflow.infer.nodes",
       "name": "Infer Nodes Workflow",
       "type": "workflow",
@@ -765,6 +880,52 @@
       ],
       "description": "Coordinates Read Graph-related workflow behavior.",
       "summaryPath": ".fab/summaries/workflow.read.graph.summary.md"
+    },
+    {
+      "id": "workflow.read.nodes",
+      "name": "Read Nodes Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/nodes/readNodes.ts"
+      ],
+      "dependsOn": [
+        "workflow.types"
+      ],
+      "tags": [
+        "read.nodes"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/readNodes.ts",
+          "reason": "Folder name \"nodes\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Read Nodes-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.read.nodes.summary.md"
+    },
+    {
+      "id": "workflow.rebuild.graph",
+      "name": "Rebuild Graph Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/core/src/graph/rebuildGraph.ts"
+      ],
+      "dependsOn": [
+        "unknown.write.evidence",
+        "workflow.read.nodes",
+        "workflow.types"
+      ],
+      "tags": [
+        "rebuild.graph"
+      ],
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/rebuildGraph.ts",
+          "reason": "Folder name \"graph\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Rebuild Graph-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.rebuild.graph.summary.md"
     },
     {
       "id": "workflow.scan",
@@ -853,6 +1014,26 @@
       ],
       "description": "Coordinates Types-related workflow behavior.",
       "summaryPath": ".fab/summaries/workflow.types.summary.md"
+    },
+    {
+      "id": "workflow.validate",
+      "name": "Validate Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/cli/src/commands/validate.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "validate"
+      ],
+      "evidence": [
+        {
+          "file": "packages/cli/src/commands/validate.ts",
+          "reason": "Folder name \"commands\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Validate-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.validate.summary.md"
     },
     {
       "id": "workflow.write.graph",
@@ -1008,6 +1189,32 @@
     },
     {
       "from": "app.index",
+      "to": "unknown.validate.fabric",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 13,
+          "endLine": 13,
+          "reason": "Imports ./validation/validateFabric."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.write.evidence",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 12,
+          "endLine": 12,
+          "reason": "Imports ./evidence/writeEvidence."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
       "to": "utility.default.config",
       "type": "imports",
       "evidence": [
@@ -1099,6 +1306,19 @@
     },
     {
       "from": "app.index",
+      "to": "workflow.generate",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/cli/src/index.ts",
+          "startLine": 7,
+          "endLine": 7,
+          "reason": "Imports ./commands/generate."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
       "to": "workflow.init",
       "type": "imports",
       "evidence": [
@@ -1130,9 +1350,35 @@
       "evidence": [
         {
           "file": "packages/core/src/index.ts",
-          "startLine": 9,
-          "endLine": 9,
+          "startLine": 10,
+          "endLine": 10,
           "reason": "Imports ./graph/readGraph."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.read.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 11,
+          "endLine": 11,
+          "reason": "Imports ./nodes/readNodes."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.rebuild.graph",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/index.ts",
+          "startLine": 8,
+          "endLine": 8,
+          "reason": "Imports ./graph/rebuildGraph."
         }
       ]
     },
@@ -1182,9 +1428,22 @@
       "evidence": [
         {
           "file": "packages/core/src/index.ts",
-          "startLine": 10,
-          "endLine": 10,
+          "startLine": 14,
+          "endLine": 14,
           "reason": "Imports ./graph/types."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "workflow.validate",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/cli/src/index.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "reason": "Imports ./commands/validate."
         }
       ]
     },
@@ -1195,8 +1454,8 @@
       "evidence": [
         {
           "file": "packages/core/src/index.ts",
-          "startLine": 8,
-          "endLine": 8,
+          "startLine": 9,
+          "endLine": 9,
           "reason": "Imports ./graph/writeGraph."
         }
       ]
@@ -1345,6 +1604,19 @@
       ]
     },
     {
+      "from": "test.authoring",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/authoring.test.ts",
+          "startLine": 7,
+          "endLine": 7,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
       "from": "test.detect.routes",
       "to": "workflow.detect.imports",
       "type": "imports",
@@ -1432,6 +1704,19 @@
           "startLine": 3,
           "endLine": 3,
           "reason": "Imports ./traceDependencies."
+        }
+      ]
+    },
+    {
+      "from": "unknown.authoring",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/authoring.ts",
+          "startLine": 11,
+          "endLine": 11,
+          "reason": "Imports ../utils/loadFabricProject."
         }
       ]
     },
@@ -1579,6 +1864,45 @@
       ]
     },
     {
+      "from": "unknown.validate.fabric",
+      "to": "workflow.read.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/validation/validateFabric.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ../nodes/readNodes."
+        }
+      ]
+    },
+    {
+      "from": "unknown.write.evidence",
+      "to": "workflow.scan.repo",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/evidence/writeEvidence.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ../scanner/scanRepo."
+        }
+      ]
+    },
+    {
+      "from": "unknown.write.evidence",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/evidence/writeEvidence.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ../graph/types."
+        }
+      ]
+    },
+    {
       "from": "utility.generate.static.summaries",
       "to": "workflow.types",
       "type": "imports",
@@ -1678,6 +2002,58 @@
           "file": "packages/core/src/graph/readGraph.ts",
           "startLine": 3,
           "endLine": 3,
+          "reason": "Imports ./types."
+        }
+      ]
+    },
+    {
+      "from": "workflow.read.nodes",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/nodes/readNodes.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ../graph/types."
+        }
+      ]
+    },
+    {
+      "from": "workflow.rebuild.graph",
+      "to": "unknown.write.evidence",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/rebuildGraph.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "reason": "Imports ../evidence/writeEvidence."
+        }
+      ]
+    },
+    {
+      "from": "workflow.rebuild.graph",
+      "to": "workflow.read.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/rebuildGraph.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ../nodes/readNodes."
+        }
+      ]
+    },
+    {
+      "from": "workflow.rebuild.graph",
+      "to": "workflow.types",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/core/src/graph/rebuildGraph.ts",
+          "startLine": 4,
+          "endLine": 4,
           "reason": "Imports ./types."
         }
       ]
@@ -1814,6 +2190,9 @@
     }
   ],
   "warnings": [
+    "Could not confidently infer a node type for packages/core/src/evidence/writeEvidence.ts.",
+    "Could not confidently infer a node type for packages/core/src/validation/validateFabric.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/authoring.ts.",
     "Could not confidently infer a node type for packages/mcp/src/tools/expandNodeCode.ts.",
     "Could not confidently infer a node type for packages/mcp/src/tools/findDuplicateCapability.ts.",
     "Could not confidently infer a node type for packages/mcp/src/tools/getNeighbors.ts.",

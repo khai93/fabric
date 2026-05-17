@@ -1,14 +1,18 @@
 # Fabric Agent Notes
 
-Fabric is a Bun TypeScript monorepo. Use Bun commands and avoid npm, pnpm, or yarn unless there is a clear reason.
+Fabric is a Bun + TypeScript monorepo. Use Bun commands and avoid npm, pnpm, or yarn unless there is a clear reason.
 
 Source files remain the source of truth. The `.fab/` directory is generated overlay output for architecture indexing and AI context. Do not treat generated graph, node, summary, ownership, or dependency files as replacements for source code.
 
-Fabric v0.2 adds an MCP server for querying the generated `.fab/` architecture overlay. MCP stdout must stay protocol-clean; send logs and diagnostics to stderr only.
+Fabric v0.3 focuses on MCP-assisted AI node generation. AI clients should use MCP write tools rather than manually editing `.fab` files when MCP is available.
 
-Do not add AI API calls, embeddings, telemetry, cloud services, visual editors, graph-native execution, file reorganization, or automatic code editing unless explicitly requested.
+MCP stdout must stay protocol-clean; send human-readable MCP logs and diagnostics to stderr only.
+
+Do not add internal AI API calls, embeddings, telemetry, cloud services, visual editors, graph-native execution, file reorganization, or automatic code editing unless explicitly requested.
 
 Do not move user source files. Source files remain the source of truth and `.fab/` remains generated overlay output.
+
+Run validation after node generation.
 
 When changing code:
 

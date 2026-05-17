@@ -1,0 +1,20 @@
+{
+  "id": "workflow.generate",
+  "name": "Generate Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/cli/src/commands/generate.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "generate"
+  ],
+  "evidence": [
+    {
+      "file": "packages/cli/src/commands/generate.ts",
+      "reason": "Folder name \"commands\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Generate-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.generate.summary.md"
+}
