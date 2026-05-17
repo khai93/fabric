@@ -1,0 +1,20 @@
+{
+  "id": "utility.score.text",
+  "name": "Score Text Utility",
+  "type": "utility",
+  "owns": [
+    "packages/mcp/src/utils/scoreText.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "score.text"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/utils/scoreText.ts",
+      "reason": "Folder name \"utils\" indicates utility ownership."
+    }
+  ],
+  "description": "Provides Score Text-related helper utilities.",
+  "summaryPath": ".fab/summaries/utility.score.text.summary.md"
+}

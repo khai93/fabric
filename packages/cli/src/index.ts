@@ -1,5 +1,6 @@
 #!/usr/bin/env bun
 import { initCommand } from "./commands/init";
+import { mcpCommand } from "./commands/mcp";
 import { scanCommand } from "./commands/scan";
 import { statusCommand } from "./commands/status";
 
@@ -15,6 +16,9 @@ try {
       break;
     case "status":
       await statusCommand();
+      break;
+    case "mcp":
+      await mcpCommand();
       break;
     case undefined:
     case "help":
@@ -39,10 +43,12 @@ Usage:
   fabric init
   fabric scan
   fabric status
+  fabric mcp
 
 Local development:
   bun run packages/cli/src/index.ts init
   bun run packages/cli/src/index.ts scan
   bun run packages/cli/src/index.ts status
+  bun run packages/cli/src/index.ts mcp
 `);
 }

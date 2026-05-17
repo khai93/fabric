@@ -1,0 +1,22 @@
+{
+  "id": "unknown.trace.dependencies",
+  "name": "Trace Dependencies",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/traceDependencies.ts"
+  ],
+  "dependsOn": [
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "trace.dependencies"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/traceDependencies.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Trace Dependencies-related code.",
+  "summaryPath": ".fab/summaries/unknown.trace.dependencies.summary.md"
+}

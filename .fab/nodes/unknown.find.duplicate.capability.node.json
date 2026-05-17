@@ -1,0 +1,24 @@
+{
+  "id": "unknown.find.duplicate.capability",
+  "name": "Find Duplicate Capability",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/findDuplicateCapability.ts"
+  ],
+  "dependsOn": [
+    "unknown.search.nodes",
+    "utility.load.fabric.project",
+    "utility.score.text"
+  ],
+  "tags": [
+    "find.duplicate.capability"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Find Duplicate Capability-related code.",
+  "summaryPath": ".fab/summaries/unknown.find.duplicate.capability.summary.md"
+}

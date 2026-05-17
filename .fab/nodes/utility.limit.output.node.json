@@ -1,0 +1,20 @@
+{
+  "id": "utility.limit.output",
+  "name": "Limit Output Utility",
+  "type": "utility",
+  "owns": [
+    "packages/mcp/src/utils/limitOutput.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "limit.output"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/utils/limitOutput.ts",
+      "reason": "Folder name \"utils\" indicates utility ownership."
+    }
+  ],
+  "description": "Provides Limit Output-related helper utilities.",
+  "summaryPath": ".fab/summaries/utility.limit.output.summary.md"
+}

@@ -1,7 +1,11 @@
 {
   "app.index": [
     "packages/cli/src/index.ts",
-    "packages/core/src/index.ts"
+    "packages/core/src/index.ts",
+    "packages/mcp/src/index.ts"
+  ],
+  "app.server": [
+    "packages/mcp/src/server.ts"
   ],
   "route.auth": [
     "packages/core/src/scanner/detectRoutes.test.ts"
@@ -15,14 +19,56 @@
   "test.detect.routes": [
     "packages/core/src/scanner/detectRoutes.test.ts"
   ],
+  "test.expand.node.code": [
+    "packages/mcp/src/tools/expandNodeCode.test.ts"
+  ],
+  "test.limit.output": [
+    "packages/mcp/src/utils/limitOutput.test.ts"
+  ],
+  "test.search.nodes": [
+    "packages/mcp/src/tools/searchNodes.test.ts"
+  ],
+  "test.trace.dependencies": [
+    "packages/mcp/src/tools/traceDependencies.test.ts"
+  ],
+  "unknown.expand.node.code": [
+    "packages/mcp/src/tools/expandNodeCode.ts"
+  ],
+  "unknown.find.duplicate.capability": [
+    "packages/mcp/src/tools/findDuplicateCapability.ts"
+  ],
+  "unknown.get.neighbors": [
+    "packages/mcp/src/tools/getNeighbors.ts"
+  ],
+  "unknown.get.node": [
+    "packages/mcp/src/tools/getNode.ts"
+  ],
+  "unknown.get.owned.files": [
+    "packages/mcp/src/tools/getOwnedFiles.ts"
+  ],
+  "unknown.search.nodes": [
+    "packages/mcp/src/tools/searchNodes.ts"
+  ],
+  "unknown.trace.dependencies": [
+    "packages/mcp/src/tools/traceDependencies.ts"
+  ],
   "utility.default.config": [
     "packages/core/src/config/defaultConfig.ts"
   ],
   "utility.generate.static.summaries": [
     "packages/core/src/summaries/generateStaticSummaries.ts"
   ],
+  "utility.limit.output": [
+    "packages/mcp/src/utils/limitOutput.ts"
+  ],
   "utility.load.config": [
     "packages/core/src/config/loadConfig.ts"
+  ],
+  "utility.load.fabric.project": [
+    "packages/mcp/src/utils/loadFabricProject.ts"
+  ],
+  "utility.score.text": [
+    "packages/mcp/src/utils/scoreText.ts"
   ],
   "utility.types": [
     "packages/types.d.ts"
@@ -47,6 +93,9 @@
   ],
   "workflow.init": [
     "packages/cli/src/commands/init.ts"
+  ],
+  "workflow.mcp": [
+    "packages/cli/src/commands/mcp.ts"
   ],
   "workflow.read.graph": [
     "packages/core/src/graph/readGraph.ts"

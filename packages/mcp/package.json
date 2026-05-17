@@ -1,0 +1,13 @@
+{
+  "name": "@fabric/mcp",
+  "version": "0.2.0",
+  "type": "module",
+  "dependencies": {
+    "@fabric/core": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./server": "./src/server.ts"
+  }
+}

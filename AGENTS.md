@@ -4,7 +4,11 @@ Fabric is a Bun TypeScript monorepo. Use Bun commands and avoid npm, pnpm, or ya
 
 Source files remain the source of truth. The `.fab/` directory is generated overlay output for architecture indexing and AI context. Do not treat generated graph, node, summary, ownership, or dependency files as replacements for source code.
 
-Do not implement MCP until explicitly requested. Milestone 1 is the deterministic scanner, CLI skeleton, and generated overlay files only.
+Fabric v0.2 adds an MCP server for querying the generated `.fab/` architecture overlay. MCP stdout must stay protocol-clean; send logs and diagnostics to stderr only.
+
+Do not add AI API calls, embeddings, telemetry, cloud services, visual editors, graph-native execution, file reorganization, or automatic code editing unless explicitly requested.
+
+Do not move user source files. Source files remain the source of truth and `.fab/` remains generated overlay output.
 
 When changing code:
 

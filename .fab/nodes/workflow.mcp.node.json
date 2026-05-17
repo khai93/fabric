@@ -1,0 +1,20 @@
+{
+  "id": "workflow.mcp",
+  "name": "Mcp Workflow",
+  "type": "workflow",
+  "owns": [
+    "packages/cli/src/commands/mcp.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "mcp"
+  ],
+  "evidence": [
+    {
+      "file": "packages/cli/src/commands/mcp.ts",
+      "reason": "Folder name \"commands\" indicates workflow ownership."
+    }
+  ],
+  "description": "Coordinates Mcp-related workflow behavior.",
+  "summaryPath": ".fab/summaries/workflow.mcp.summary.md"
+}

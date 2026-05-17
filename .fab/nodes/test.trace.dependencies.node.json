@@ -1,0 +1,22 @@
+{
+  "id": "test.trace.dependencies",
+  "name": "Trace Dependencies Test",
+  "type": "test",
+  "owns": [
+    "packages/mcp/src/tools/traceDependencies.test.ts"
+  ],
+  "dependsOn": [
+    "unknown.trace.dependencies"
+  ],
+  "tags": [
+    "trace.dependencies"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/traceDependencies.test.ts",
+      "reason": "File path or extension indicates a test file."
+    }
+  ],
+  "description": "Covers Trace Dependencies-related behavior with tests.",
+  "summaryPath": ".fab/summaries/test.trace.dependencies.summary.md"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "utility.load.fabric.project",
+  "name": "Load Fabric Project Utility",
+  "type": "utility",
+  "owns": [
+    "packages/mcp/src/utils/loadFabricProject.ts"
+  ],
+  "dependsOn": [],
+  "tags": [
+    "load.fabric.project"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/utils/loadFabricProject.ts",
+      "reason": "Folder name \"utils\" indicates utility ownership."
+    }
+  ],
+  "description": "Provides Load Fabric Project-related helper utilities.",
+  "summaryPath": ".fab/summaries/utility.load.fabric.project.summary.md"
+}

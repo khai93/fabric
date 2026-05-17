@@ -1,0 +1,22 @@
+{
+  "id": "unknown.get.owned.files",
+  "name": "Get Owned Files",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/getOwnedFiles.ts"
+  ],
+  "dependsOn": [
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "get.owned.files"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Get Owned Files-related code.",
+  "summaryPath": ".fab/summaries/unknown.get.owned.files.summary.md"
+}

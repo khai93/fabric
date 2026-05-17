@@ -1,0 +1,23 @@
+{
+  "id": "unknown.search.nodes",
+  "name": "Search Nodes",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/searchNodes.ts"
+  ],
+  "dependsOn": [
+    "utility.load.fabric.project",
+    "utility.score.text"
+  ],
+  "tags": [
+    "search.nodes"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/searchNodes.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Search Nodes-related code.",
+  "summaryPath": ".fab/summaries/unknown.search.nodes.summary.md"
+}

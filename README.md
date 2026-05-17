@@ -32,6 +32,7 @@ Run the local CLI directly:
 bun run packages/cli/src/index.ts init
 bun run packages/cli/src/index.ts scan
 bun run packages/cli/src/index.ts status
+bun run packages/cli/src/index.ts mcp
 ```
 
 The root shortcut also works:
@@ -40,6 +41,7 @@ The root shortcut also works:
 bun run dev -- init
 bun run dev -- scan
 bun run dev -- status
+bun run dev -- mcp
 ```
 
 ## Commands
@@ -79,6 +81,48 @@ Generated output includes:
 
 Prints project name, `.fab/` availability, scanned source file count, generated node count, dependency edge count, summary count, and warnings for missing graph files.
 
+### `fabric mcp`
+
+Starts the Fabric v0.2 MCP server over stdio. The server reads the generated `.fab/` overlay from the current working directory and exposes architecture traversal tools to external AI coding agents.
+
+Prepare a project first:
+
+```sh
+bun run packages/cli/src/index.ts init
+bun run packages/cli/src/index.ts scan
+bun run packages/cli/src/index.ts mcp
+```
+
+Example MCP client config shape:
+
+```json
+{
+  "mcpServers": {
+    "fabric": {
+      "command": "bun",
+      "args": [
+        "run",
+        "packages/cli/src/index.ts",
+        "mcp"
+      ],
+      "cwd": "/absolute/path/to/project"
+    }
+  }
+}
+```
+
+AI agents can call tools such as:
+
+- `fabric.search_nodes`
+- `fabric.get_node`
+- `fabric.get_neighbors`
+- `fabric.get_owned_files`
+- `fabric.expand_node_code`
+- `fabric.trace_dependencies`
+- `fabric.find_duplicate_capability`
+
+MCP stdout is reserved for the stdio protocol. Logs and diagnostics must go to stderr.
+
 ## Example Node Summary
 
 ```md
@@ -106,5 +150,3 @@ Handles authentication-related behavior.
 - AI summaries
 - Graph UI
 - Graph-assisted edits
-
-MCP is intentionally not implemented in Milestone 1.

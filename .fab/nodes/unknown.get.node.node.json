@@ -1,0 +1,22 @@
+{
+  "id": "unknown.get.node",
+  "name": "Get Node",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/getNode.ts"
+  ],
+  "dependsOn": [
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "get.node"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/getNode.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Get Node-related code.",
+  "summaryPath": ".fab/summaries/unknown.get.node.summary.md"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "test.limit.output",
+  "name": "Limit Output Test",
+  "type": "test",
+  "owns": [
+    "packages/mcp/src/utils/limitOutput.test.ts"
+  ],
+  "dependsOn": [
+    "utility.limit.output"
+  ],
+  "tags": [
+    "limit.output"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/utils/limitOutput.test.ts",
+      "reason": "File path or extension indicates a test file."
+    }
+  ],
+  "description": "Covers Limit Output-related behavior with tests.",
+  "summaryPath": ".fab/summaries/test.limit.output.summary.md"
+}

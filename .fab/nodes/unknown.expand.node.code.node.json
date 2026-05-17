@@ -1,0 +1,23 @@
+{
+  "id": "unknown.expand.node.code",
+  "name": "Expand Node Code",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/expandNodeCode.ts"
+  ],
+  "dependsOn": [
+    "utility.limit.output",
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "expand.node.code"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/expandNodeCode.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Expand Node Code-related code.",
+  "summaryPath": ".fab/summaries/unknown.expand.node.code.summary.md"
+}

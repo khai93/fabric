@@ -1,0 +1,22 @@
+{
+  "id": "unknown.get.neighbors",
+  "name": "Get Neighbors",
+  "type": "unknown",
+  "owns": [
+    "packages/mcp/src/tools/getNeighbors.ts"
+  ],
+  "dependsOn": [
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "get.neighbors"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/getNeighbors.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Represents inferred Get Neighbors-related code.",
+  "summaryPath": ".fab/summaries/unknown.get.neighbors.summary.md"
+}

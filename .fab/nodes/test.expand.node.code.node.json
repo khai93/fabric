@@ -1,0 +1,22 @@
+{
+  "id": "test.expand.node.code",
+  "name": "Expand Node Code Test",
+  "type": "test",
+  "owns": [
+    "packages/mcp/src/tools/expandNodeCode.test.ts"
+  ],
+  "dependsOn": [
+    "unknown.expand.node.code"
+  ],
+  "tags": [
+    "expand.node.code"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/expandNodeCode.test.ts",
+      "reason": "File path or extension indicates a test file."
+    }
+  ],
+  "description": "Covers Expand Node Code-related behavior with tests.",
+  "summaryPath": ".fab/summaries/test.expand.node.code.summary.md"
+}

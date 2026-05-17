@@ -1,18 +1,38 @@
 {
   "app.index": [
+    "app.server",
+    "unknown.expand.node.code",
+    "unknown.find.duplicate.capability",
+    "unknown.get.neighbors",
+    "unknown.get.node",
+    "unknown.get.owned.files",
+    "unknown.search.nodes",
+    "unknown.trace.dependencies",
     "utility.default.config",
     "utility.load.config",
+    "utility.load.fabric.project",
     "workflow.build.graph",
     "workflow.detect.imports",
     "workflow.detect.routes",
     "workflow.detect.tests",
     "workflow.init",
+    "workflow.mcp",
     "workflow.read.graph",
     "workflow.scan",
     "workflow.scan.repo",
     "workflow.status",
     "workflow.types",
     "workflow.write.graph"
+  ],
+  "app.server": [
+    "unknown.expand.node.code",
+    "unknown.find.duplicate.capability",
+    "unknown.get.neighbors",
+    "unknown.get.node",
+    "unknown.get.owned.files",
+    "unknown.search.nodes",
+    "unknown.trace.dependencies",
+    "utility.load.fabric.project"
   ],
   "route.auth": [
     "test.detect.routes"
@@ -27,13 +47,54 @@
     "workflow.detect.imports",
     "workflow.detect.routes"
   ],
+  "test.expand.node.code": [
+    "unknown.expand.node.code"
+  ],
+  "test.limit.output": [
+    "utility.limit.output"
+  ],
+  "test.search.nodes": [
+    "unknown.search.nodes",
+    "utility.load.fabric.project"
+  ],
+  "test.trace.dependencies": [
+    "unknown.trace.dependencies"
+  ],
+  "unknown.expand.node.code": [
+    "utility.limit.output",
+    "utility.load.fabric.project"
+  ],
+  "unknown.find.duplicate.capability": [
+    "unknown.search.nodes",
+    "utility.load.fabric.project",
+    "utility.score.text"
+  ],
+  "unknown.get.neighbors": [
+    "utility.load.fabric.project"
+  ],
+  "unknown.get.node": [
+    "utility.load.fabric.project"
+  ],
+  "unknown.get.owned.files": [
+    "utility.load.fabric.project"
+  ],
+  "unknown.search.nodes": [
+    "utility.load.fabric.project",
+    "utility.score.text"
+  ],
+  "unknown.trace.dependencies": [
+    "utility.load.fabric.project"
+  ],
   "utility.default.config": [],
   "utility.generate.static.summaries": [
     "workflow.types"
   ],
+  "utility.limit.output": [],
   "utility.load.config": [
     "utility.default.config"
   ],
+  "utility.load.fabric.project": [],
+  "utility.score.text": [],
   "utility.types": [],
   "workflow.build.graph": [
     "workflow.infer.nodes",
@@ -49,6 +110,7 @@
     "workflow.types"
   ],
   "workflow.init": [],
+  "workflow.mcp": [],
   "workflow.read.graph": [
     "workflow.types"
   ],

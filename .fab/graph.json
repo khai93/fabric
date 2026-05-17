@@ -3,7 +3,7 @@
   "generatedAt": "1970-01-01T00:00:00.000Z",
   "projectRoot": "/home/khai/projects/fabric",
   "projectName": "fabric-monorepo",
-  "filesScanned": 21,
+  "filesScanned": 38,
   "nodes": [
     {
       "id": "app.index",
@@ -11,16 +11,27 @@
       "type": "app",
       "owns": [
         "packages/cli/src/index.ts",
-        "packages/core/src/index.ts"
+        "packages/core/src/index.ts",
+        "packages/mcp/src/index.ts"
       ],
       "dependsOn": [
+        "app.server",
+        "unknown.expand.node.code",
+        "unknown.find.duplicate.capability",
+        "unknown.get.neighbors",
+        "unknown.get.node",
+        "unknown.get.owned.files",
+        "unknown.search.nodes",
+        "unknown.trace.dependencies",
         "utility.default.config",
         "utility.load.config",
+        "utility.load.fabric.project",
         "workflow.build.graph",
         "workflow.detect.imports",
         "workflow.detect.routes",
         "workflow.detect.tests",
         "workflow.init",
+        "workflow.mcp",
         "workflow.read.graph",
         "workflow.scan",
         "workflow.scan.repo",
@@ -39,10 +50,43 @@
         {
           "file": "packages/core/src/index.ts",
           "reason": "No strong convention matched; grouped as an unknown capability."
+        },
+        {
+          "file": "packages/mcp/src/index.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
         }
       ],
       "description": "Coordinates application entrypoint behavior for Index.",
       "summaryPath": ".fab/summaries/app.index.summary.md"
+    },
+    {
+      "id": "app.server",
+      "name": "Server App",
+      "type": "app",
+      "owns": [
+        "packages/mcp/src/server.ts"
+      ],
+      "dependsOn": [
+        "unknown.expand.node.code",
+        "unknown.find.duplicate.capability",
+        "unknown.get.neighbors",
+        "unknown.get.node",
+        "unknown.get.owned.files",
+        "unknown.search.nodes",
+        "unknown.trace.dependencies",
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "server"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Coordinates application entrypoint behavior for Server.",
+      "summaryPath": ".fab/summaries/app.server.summary.md"
     },
     {
       "id": "route.auth",
@@ -143,6 +187,253 @@
       "summaryPath": ".fab/summaries/test.detect.routes.summary.md"
     },
     {
+      "id": "test.expand.node.code",
+      "name": "Expand Node Code Test",
+      "type": "test",
+      "owns": [
+        "packages/mcp/src/tools/expandNodeCode.test.ts"
+      ],
+      "dependsOn": [
+        "unknown.expand.node.code"
+      ],
+      "tags": [
+        "expand.node.code"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/expandNodeCode.test.ts",
+          "reason": "File path or extension indicates a test file."
+        }
+      ],
+      "description": "Covers Expand Node Code-related behavior with tests.",
+      "summaryPath": ".fab/summaries/test.expand.node.code.summary.md"
+    },
+    {
+      "id": "test.limit.output",
+      "name": "Limit Output Test",
+      "type": "test",
+      "owns": [
+        "packages/mcp/src/utils/limitOutput.test.ts"
+      ],
+      "dependsOn": [
+        "utility.limit.output"
+      ],
+      "tags": [
+        "limit.output"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/utils/limitOutput.test.ts",
+          "reason": "File path or extension indicates a test file."
+        }
+      ],
+      "description": "Covers Limit Output-related behavior with tests.",
+      "summaryPath": ".fab/summaries/test.limit.output.summary.md"
+    },
+    {
+      "id": "test.search.nodes",
+      "name": "Search Nodes Test",
+      "type": "test",
+      "owns": [
+        "packages/mcp/src/tools/searchNodes.test.ts"
+      ],
+      "dependsOn": [
+        "unknown.search.nodes",
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "search.nodes"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/searchNodes.test.ts",
+          "reason": "File path or extension indicates a test file."
+        }
+      ],
+      "description": "Covers Search Nodes-related behavior with tests.",
+      "summaryPath": ".fab/summaries/test.search.nodes.summary.md"
+    },
+    {
+      "id": "test.trace.dependencies",
+      "name": "Trace Dependencies Test",
+      "type": "test",
+      "owns": [
+        "packages/mcp/src/tools/traceDependencies.test.ts"
+      ],
+      "dependsOn": [
+        "unknown.trace.dependencies"
+      ],
+      "tags": [
+        "trace.dependencies"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/traceDependencies.test.ts",
+          "reason": "File path or extension indicates a test file."
+        }
+      ],
+      "description": "Covers Trace Dependencies-related behavior with tests.",
+      "summaryPath": ".fab/summaries/test.trace.dependencies.summary.md"
+    },
+    {
+      "id": "unknown.expand.node.code",
+      "name": "Expand Node Code",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/expandNodeCode.ts"
+      ],
+      "dependsOn": [
+        "utility.limit.output",
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "expand.node.code"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/expandNodeCode.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Expand Node Code-related code.",
+      "summaryPath": ".fab/summaries/unknown.expand.node.code.summary.md"
+    },
+    {
+      "id": "unknown.find.duplicate.capability",
+      "name": "Find Duplicate Capability",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/findDuplicateCapability.ts"
+      ],
+      "dependsOn": [
+        "unknown.search.nodes",
+        "utility.load.fabric.project",
+        "utility.score.text"
+      ],
+      "tags": [
+        "find.duplicate.capability"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Find Duplicate Capability-related code.",
+      "summaryPath": ".fab/summaries/unknown.find.duplicate.capability.summary.md"
+    },
+    {
+      "id": "unknown.get.neighbors",
+      "name": "Get Neighbors",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/getNeighbors.ts"
+      ],
+      "dependsOn": [
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "get.neighbors"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/getNeighbors.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Get Neighbors-related code.",
+      "summaryPath": ".fab/summaries/unknown.get.neighbors.summary.md"
+    },
+    {
+      "id": "unknown.get.node",
+      "name": "Get Node",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/getNode.ts"
+      ],
+      "dependsOn": [
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "get.node"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/getNode.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Get Node-related code.",
+      "summaryPath": ".fab/summaries/unknown.get.node.summary.md"
+    },
+    {
+      "id": "unknown.get.owned.files",
+      "name": "Get Owned Files",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/getOwnedFiles.ts"
+      ],
+      "dependsOn": [
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "get.owned.files"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Get Owned Files-related code.",
+      "summaryPath": ".fab/summaries/unknown.get.owned.files.summary.md"
+    },
+    {
+      "id": "unknown.search.nodes",
+      "name": "Search Nodes",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/searchNodes.ts"
+      ],
+      "dependsOn": [
+        "utility.load.fabric.project",
+        "utility.score.text"
+      ],
+      "tags": [
+        "search.nodes"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/searchNodes.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Search Nodes-related code.",
+      "summaryPath": ".fab/summaries/unknown.search.nodes.summary.md"
+    },
+    {
+      "id": "unknown.trace.dependencies",
+      "name": "Trace Dependencies",
+      "type": "unknown",
+      "owns": [
+        "packages/mcp/src/tools/traceDependencies.ts"
+      ],
+      "dependsOn": [
+        "utility.load.fabric.project"
+      ],
+      "tags": [
+        "trace.dependencies"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/traceDependencies.ts",
+          "reason": "No strong convention matched; grouped as an unknown capability."
+        }
+      ],
+      "description": "Represents inferred Trace Dependencies-related code.",
+      "summaryPath": ".fab/summaries/unknown.trace.dependencies.summary.md"
+    },
+    {
       "id": "utility.default.config",
       "name": "Default Config Utility",
       "type": "utility",
@@ -185,6 +476,26 @@
       "summaryPath": ".fab/summaries/utility.generate.static.summaries.summary.md"
     },
     {
+      "id": "utility.limit.output",
+      "name": "Limit Output Utility",
+      "type": "utility",
+      "owns": [
+        "packages/mcp/src/utils/limitOutput.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "limit.output"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/utils/limitOutput.ts",
+          "reason": "Folder name \"utils\" indicates utility ownership."
+        }
+      ],
+      "description": "Provides Limit Output-related helper utilities.",
+      "summaryPath": ".fab/summaries/utility.limit.output.summary.md"
+    },
+    {
       "id": "utility.load.config",
       "name": "Load Config Utility",
       "type": "utility",
@@ -205,6 +516,46 @@
       ],
       "description": "Provides Load Config-related helper utilities.",
       "summaryPath": ".fab/summaries/utility.load.config.summary.md"
+    },
+    {
+      "id": "utility.load.fabric.project",
+      "name": "Load Fabric Project Utility",
+      "type": "utility",
+      "owns": [
+        "packages/mcp/src/utils/loadFabricProject.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "load.fabric.project"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/utils/loadFabricProject.ts",
+          "reason": "Folder name \"utils\" indicates utility ownership."
+        }
+      ],
+      "description": "Provides Load Fabric Project-related helper utilities.",
+      "summaryPath": ".fab/summaries/utility.load.fabric.project.summary.md"
+    },
+    {
+      "id": "utility.score.text",
+      "name": "Score Text Utility",
+      "type": "utility",
+      "owns": [
+        "packages/mcp/src/utils/scoreText.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "score.text"
+      ],
+      "evidence": [
+        {
+          "file": "packages/mcp/src/utils/scoreText.ts",
+          "reason": "Folder name \"utils\" indicates utility ownership."
+        }
+      ],
+      "description": "Provides Score Text-related helper utilities.",
+      "summaryPath": ".fab/summaries/utility.score.text.summary.md"
     },
     {
       "id": "utility.types",
@@ -374,6 +725,26 @@
       "summaryPath": ".fab/summaries/workflow.init.summary.md"
     },
     {
+      "id": "workflow.mcp",
+      "name": "Mcp Workflow",
+      "type": "workflow",
+      "owns": [
+        "packages/cli/src/commands/mcp.ts"
+      ],
+      "dependsOn": [],
+      "tags": [
+        "mcp"
+      ],
+      "evidence": [
+        {
+          "file": "packages/cli/src/commands/mcp.ts",
+          "reason": "Folder name \"commands\" indicates workflow ownership."
+        }
+      ],
+      "description": "Coordinates Mcp-related workflow behavior.",
+      "summaryPath": ".fab/summaries/workflow.mcp.summary.md"
+    },
+    {
       "id": "workflow.read.graph",
       "name": "Read Graph Workflow",
       "type": "workflow",
@@ -533,6 +904,110 @@
   "edges": [
     {
       "from": "app.index",
+      "to": "app.server",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "reason": "Imports ./server."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.expand.node.code",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 7,
+          "endLine": 7,
+          "reason": "Imports ./tools/expandNodeCode."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.find.duplicate.capability",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 9,
+          "endLine": 9,
+          "reason": "Imports ./tools/findDuplicateCapability."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.get.neighbors",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ./tools/getNeighbors."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.get.node",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ./tools/getNode."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.get.owned.files",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "reason": "Imports ./tools/getOwnedFiles."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.search.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./tools/searchNodes."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "unknown.trace.dependencies",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 8,
+          "endLine": 8,
+          "reason": "Imports ./tools/traceDependencies."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
       "to": "utility.default.config",
       "type": "imports",
       "evidence": [
@@ -554,6 +1029,19 @@
           "startLine": 2,
           "endLine": 2,
           "reason": "Imports ./config/loadConfig."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/index.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ./utils/loadFabricProject."
         }
       ]
     },
@@ -624,6 +1112,19 @@
     },
     {
       "from": "app.index",
+      "to": "workflow.mcp",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/cli/src/index.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./commands/mcp."
+        }
+      ]
+    },
+    {
+      "from": "app.index",
       "to": "workflow.read.graph",
       "type": "imports",
       "evidence": [
@@ -642,8 +1143,8 @@
       "evidence": [
         {
           "file": "packages/cli/src/index.ts",
-          "startLine": 3,
-          "endLine": 3,
+          "startLine": 4,
+          "endLine": 4,
           "reason": "Imports ./commands/scan."
         }
       ]
@@ -668,8 +1169,8 @@
       "evidence": [
         {
           "file": "packages/cli/src/index.ts",
-          "startLine": 4,
-          "endLine": 4,
+          "startLine": 5,
+          "endLine": 5,
           "reason": "Imports ./commands/status."
         }
       ]
@@ -697,6 +1198,110 @@
           "startLine": 8,
           "endLine": 8,
           "reason": "Imports ./graph/writeGraph."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "unknown.expand.node.code",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 9,
+          "endLine": 9,
+          "reason": "Imports ./tools/expandNodeCode."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "unknown.find.duplicate.capability",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 10,
+          "endLine": 10,
+          "reason": "Imports ./tools/findDuplicateCapability."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "unknown.get.neighbors",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 11,
+          "endLine": 11,
+          "reason": "Imports ./tools/getNeighbors."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "unknown.get.node",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 12,
+          "endLine": 12,
+          "reason": "Imports ./tools/getNode."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "unknown.get.owned.files",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 13,
+          "endLine": 13,
+          "reason": "Imports ./tools/getOwnedFiles."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "unknown.search.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 14,
+          "endLine": 14,
+          "reason": "Imports ./tools/searchNodes."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "unknown.trace.dependencies",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 15,
+          "endLine": 15,
+          "reason": "Imports ./tools/traceDependencies."
+        }
+      ]
+    },
+    {
+      "from": "app.server",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/server.ts",
+          "startLine": 16,
+          "endLine": 16,
+          "reason": "Imports ./utils/loadFabricProject."
         }
       ]
     },
@@ -762,6 +1367,214 @@
           "startLine": 3,
           "endLine": 3,
           "reason": "Imports ./detectRoutes."
+        }
+      ]
+    },
+    {
+      "from": "test.expand.node.code",
+      "to": "unknown.expand.node.code",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/expandNodeCode.test.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./expandNodeCode."
+        }
+      ]
+    },
+    {
+      "from": "test.limit.output",
+      "to": "utility.limit.output",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/utils/limitOutput.test.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ./limitOutput."
+        }
+      ]
+    },
+    {
+      "from": "test.search.nodes",
+      "to": "unknown.search.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/searchNodes.test.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ./searchNodes."
+        }
+      ]
+    },
+    {
+      "from": "test.search.nodes",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/searchNodes.test.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
+      "from": "test.trace.dependencies",
+      "to": "unknown.trace.dependencies",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/traceDependencies.test.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./traceDependencies."
+        }
+      ]
+    },
+    {
+      "from": "unknown.expand.node.code",
+      "to": "utility.limit.output",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/expandNodeCode.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ../utils/limitOutput."
+        }
+      ]
+    },
+    {
+      "from": "unknown.expand.node.code",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/expandNodeCode.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
+      "from": "unknown.find.duplicate.capability",
+      "to": "unknown.search.nodes",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "reason": "Imports ./searchNodes."
+        }
+      ]
+    },
+    {
+      "from": "unknown.find.duplicate.capability",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
+      "from": "unknown.find.duplicate.capability",
+      "to": "utility.score.text",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/findDuplicateCapability.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ../utils/scoreText."
+        }
+      ]
+    },
+    {
+      "from": "unknown.get.neighbors",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/getNeighbors.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
+      "from": "unknown.get.node",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/getNode.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
+      "from": "unknown.get.owned.files",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/getOwnedFiles.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
+      "from": "unknown.search.nodes",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/searchNodes.ts",
+          "startLine": 5,
+          "endLine": 5,
+          "reason": "Imports ../utils/loadFabricProject."
+        }
+      ]
+    },
+    {
+      "from": "unknown.search.nodes",
+      "to": "utility.score.text",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/searchNodes.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "reason": "Imports ../utils/scoreText."
+        }
+      ]
+    },
+    {
+      "from": "unknown.trace.dependencies",
+      "to": "utility.load.fabric.project",
+      "type": "imports",
+      "evidence": [
+        {
+          "file": "packages/mcp/src/tools/traceDependencies.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "reason": "Imports ../utils/loadFabricProject."
         }
       ]
     },
@@ -1000,5 +1813,13 @@
       ]
     }
   ],
-  "warnings": []
+  "warnings": [
+    "Could not confidently infer a node type for packages/mcp/src/tools/expandNodeCode.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/findDuplicateCapability.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/getNeighbors.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/getNode.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/getOwnedFiles.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/searchNodes.ts.",
+    "Could not confidently infer a node type for packages/mcp/src/tools/traceDependencies.ts."
+  ]
 }

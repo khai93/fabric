@@ -11,6 +11,7 @@ declare module "node:fs" {
 declare module "node:fs/promises" {
   export function mkdir(path: string, options?: { recursive?: boolean }): Promise<void>;
   export function readFile(path: string, encoding: "utf8"): Promise<string>;
+  export function stat(path: string): Promise<{ isFile(): boolean; size: number }>;
   export function unlink(path: string): Promise<void>;
   export function writeFile(path: string, data: string): Promise<void>;
   export function readdir(path: string, options: { withFileTypes: true }): Promise<Dirent[]>;
@@ -29,6 +30,7 @@ declare module "node:path" {
   export function extname(path: string): string;
   export function join(...paths: string[]): string;
   export function relative(from: string, to: string): string;
+  export function resolve(...paths: string[]): string;
   export const sep: string;
   export const posix: {
     dirname(path: string): string;

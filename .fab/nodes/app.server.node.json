@@ -1,0 +1,29 @@
+{
+  "id": "app.server",
+  "name": "Server App",
+  "type": "app",
+  "owns": [
+    "packages/mcp/src/server.ts"
+  ],
+  "dependsOn": [
+    "unknown.expand.node.code",
+    "unknown.find.duplicate.capability",
+    "unknown.get.neighbors",
+    "unknown.get.node",
+    "unknown.get.owned.files",
+    "unknown.search.nodes",
+    "unknown.trace.dependencies",
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "server"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/server.ts",
+      "reason": "No strong convention matched; grouped as an unknown capability."
+    }
+  ],
+  "description": "Coordinates application entrypoint behavior for Server.",
+  "summaryPath": ".fab/summaries/app.server.summary.md"
+}

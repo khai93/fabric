@@ -1,0 +1,23 @@
+{
+  "id": "test.search.nodes",
+  "name": "Search Nodes Test",
+  "type": "test",
+  "owns": [
+    "packages/mcp/src/tools/searchNodes.test.ts"
+  ],
+  "dependsOn": [
+    "unknown.search.nodes",
+    "utility.load.fabric.project"
+  ],
+  "tags": [
+    "search.nodes"
+  ],
+  "evidence": [
+    {
+      "file": "packages/mcp/src/tools/searchNodes.test.ts",
+      "reason": "File path or extension indicates a test file."
+    }
+  ],
+  "description": "Covers Search Nodes-related behavior with tests.",
+  "summaryPath": ".fab/summaries/test.search.nodes.summary.md"
+}

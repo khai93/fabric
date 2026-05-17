@@ -6,15 +6,26 @@ Coordinates application entrypoint behavior for Index.
 ## Owned files
 - packages/cli/src/index.ts
 - packages/core/src/index.ts
+- packages/mcp/src/index.ts
 
 ## Dependencies
+- app.server
+- unknown.expand.node.code
+- unknown.find.duplicate.capability
+- unknown.get.neighbors
+- unknown.get.node
+- unknown.get.owned.files
+- unknown.search.nodes
+- unknown.trace.dependencies
 - utility.default.config
 - utility.load.config
+- utility.load.fabric.project
 - workflow.build.graph
 - workflow.detect.imports
 - workflow.detect.routes
 - workflow.detect.tests
 - workflow.init
+- workflow.mcp
 - workflow.read.graph
 - workflow.scan
 - workflow.scan.repo
@@ -30,3 +41,4 @@ Coordinates application entrypoint behavior for Index.
 ## Evidence
 - packages/cli/src/index.ts: No strong convention matched; grouped as an unknown capability.
 - packages/core/src/index.ts: No strong convention matched; grouped as an unknown capability.
+- packages/mcp/src/index.ts: No strong convention matched; grouped as an unknown capability.
