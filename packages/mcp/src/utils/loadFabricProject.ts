@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { FabricGraph } from "@fabric/core";
+import type { FabricGraph } from "@khai93/fabric-core";
 
 export interface LoadedFabricProject {
   projectRoot: string;

@@ -1,9 +1,9 @@
 {
-  "name": "@fabric/mcp",
+  "name": "@khai93/fabric-mcp",
   "version": "0.3.0",
   "type": "module",
   "dependencies": {
-    "@fabric/core": "workspace:*",
+    "@khai93/fabric-core": "0.3.0",
     "@modelcontextprotocol/sdk": "^1.12.1"
   },
   "exports": {

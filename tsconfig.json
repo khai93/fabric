@@ -9,9 +9,9 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@fabric/core": ["packages/core/src/index.ts"],
-      "@fabric/mcp": ["packages/mcp/src/index.ts"],
-      "@fabric/mcp/server": ["packages/mcp/src/server.ts"]
+      "@khai93/fabric-core": ["packages/core/src/index.ts"],
+      "@khai93/fabric-mcp": ["packages/mcp/src/index.ts"],
+      "@khai93/fabric-mcp/server": ["packages/mcp/src/server.ts"]
     },
     "skipLibCheck": true
   },

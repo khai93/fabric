@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { defaultConfig, type FabricGraph } from "@fabric/core";
+import { defaultConfig, type FabricGraph } from "@khai93/fabric-core";
 
 export async function initCommand(projectRoot = process.cwd()): Promise<void> {
   const fabDirectory = join(projectRoot, ".fab");

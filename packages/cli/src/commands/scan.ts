@@ -1,6 +1,6 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import { buildGraph, scanRepo, writeEvidence, writeGraph } from "@fabric/core";
+import { buildGraph, scanRepo, writeEvidence, writeGraph } from "@khai93/fabric-core";
 import { initCommand } from "./init";
 
 export async function scanCommand(projectRoot = process.cwd()): Promise<void> {

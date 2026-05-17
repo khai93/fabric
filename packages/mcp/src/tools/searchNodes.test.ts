@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import type { FabricGraph } from "@fabric/core";
+import type { FabricGraph } from "@khai93/fabric-core";
 import type { LoadedFabricProject } from "../utils/loadFabricProject";
 import { searchNodes } from "./searchNodes";
 

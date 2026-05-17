@@ -1,4 +1,4 @@
-import { validateFabric } from "@fabric/core";
+import { validateFabric } from "@khai93/fabric-core";
 
 export async function validateCommand(projectRoot = process.cwd()): Promise<void> {
   const result = await validateFabric(projectRoot);

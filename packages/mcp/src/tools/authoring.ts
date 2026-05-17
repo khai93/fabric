@@ -7,7 +7,7 @@ import {
   validateFabric,
   type FabricNode,
   type FabricNodeType
-} from "@fabric/core";
+} from "@khai93/fabric-core";
 import type { LoadedFabricProject } from "../utils/loadFabricProject";
 
 export const validNodeTypes: FabricNodeType[] = [

@@ -15,6 +15,22 @@ bun install
 bunx tsc --noEmit
 ```
 
+## npm Packages
+
+Fabric publishes under the `@khai93` npm scope:
+
+- `@khai93/fabric-core`
+- `@khai93/fabric-mcp`
+- `@khai93/fabric-cli`
+
+Install the CLI globally:
+
+```sh
+npm install -g @khai93/fabric-cli
+```
+
+The installed CLI exposes both `fab` and `fabric`.
+
 On WSL, make sure `which bun` points to a Linux Bun install, not a Windows path such as `/mnt/c/Users/.../npm/bun`. A Windows Bun binary running inside WSL can fail workspace installs with `ENOENT` symlink errors and paths like `packages\cli`.
 
 Install Bun inside WSL if needed:

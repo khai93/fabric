@@ -1,4 +1,4 @@
-import type { FabricGraph, FabricNode } from "@fabric/core";
+import type { FabricGraph, FabricNode } from "@khai93/fabric-core";
 import type { LoadedFabricProject } from "../utils/loadFabricProject";
 
 export type NeighborDirection = "incoming" | "outgoing" | "both";

@@ -1,5 +1,5 @@
 {
-  "name": "@fabric/core",
+  "name": "@khai93/fabric-core",
   "version": "0.3.0",
   "type": "module",
   "exports": {

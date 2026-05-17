@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import type { FabricNode } from "@fabric/core";
+import type { FabricNode } from "@khai93/fabric-core";
 import type { LoadedFabricProject } from "../utils/loadFabricProject";
 import { scoreNode } from "../utils/scoreText";
 

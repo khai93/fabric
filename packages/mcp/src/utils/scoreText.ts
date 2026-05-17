@@ -1,4 +1,4 @@
-import type { FabricNode } from "@fabric/core";
+import type { FabricNode } from "@khai93/fabric-core";
 
 export interface NodeScore {
   score: number;

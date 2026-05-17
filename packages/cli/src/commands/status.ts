@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { readdir } from "node:fs/promises";
 import { join } from "node:path";
-import { readGraph } from "@fabric/core";
+import { readGraph } from "@khai93/fabric-core";
 
 export async function statusCommand(projectRoot = process.cwd()): Promise<void> {
   const fabDirectory = join(projectRoot, ".fab");

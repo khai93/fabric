@@ -1,5 +1,5 @@
-import { startMcpServer } from "@fabric/mcp/server";
-import { loadFabricProject } from "@fabric/mcp";
+import { startMcpServer } from "@khai93/fabric-mcp/server";
+import { loadFabricProject } from "@khai93/fabric-mcp";
 
 export async function mcpCommand(projectRoot = process.cwd()): Promise<void> {
   console.error("Fabric MCP server starting...");

@@ -2,8 +2,8 @@ import { describe, expect, test } from "bun:test";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import type { FabricGraph } from "@fabric/core";
-import { validateFabric } from "@fabric/core";
+import type { FabricGraph } from "@khai93/fabric-core";
+import { validateFabric } from "@khai93/fabric-core";
 import type { LoadedFabricProject } from "../utils/loadFabricProject";
 import {
   getGenerationInstructions,
