@@ -7,6 +7,7 @@ export interface GetNeighborsInput {
   id: string;
   depth?: number;
   direction?: NeighborDirection;
+  limit?: number;
 }
 
 export interface Neighbor {
@@ -23,13 +24,19 @@ export function getNeighbors(project: LoadedFabricProject, input: GetNeighborsIn
   depth: number;
   direction: NeighborDirection;
   neighbors: Neighbor[];
+  totalFound: number;
+  truncated: boolean;
+  limit: number;
 } {
   assertNodeExists(project.graph, input.id);
   const depth = normalizeDepth(input.depth);
   const direction = input.direction ?? "both";
+  const limit = normalizeLimit(input.limit);
   const nodeById = new Map(project.graph.nodes.map((node) => [node.id, node]));
   const seen = new Set<string>([input.id]);
   const neighbors: Neighbor[] = [];
+  let totalFound = 0;
+  let truncated = false;
   let frontier = [input.id];
 
   for (let currentDepth = 1; currentDepth <= depth; currentDepth += 1) {
@@ -50,7 +57,13 @@ export function getNeighbors(project: LoadedFabricProject, input: GetNeighborsIn
         if (!seen.has(connected.id)) {
           seen.add(connected.id);
           nextFrontier.push(connected.id);
-          neighbors.push(toNeighbor(node, edge.type, connected.direction, currentDepth));
+          totalFound += 1;
+
+          if (neighbors.length < limit) {
+            neighbors.push(toNeighbor(node, edge.type, connected.direction, currentDepth));
+          } else {
+            truncated = true;
+          }
         }
       }
     }
@@ -62,7 +75,10 @@ export function getNeighbors(project: LoadedFabricProject, input: GetNeighborsIn
     id: input.id,
     depth,
     direction,
-    neighbors: neighbors.sort((a, b) => a.depth - b.depth || a.id.localeCompare(b.id))
+    neighbors: neighbors.sort((a, b) => a.depth - b.depth || a.id.localeCompare(b.id)),
+    totalFound,
+    truncated,
+    limit
   };
 }
 
@@ -95,6 +111,14 @@ function toNeighbor(node: FabricNode, relationship: string, direction: "incoming
 
 function normalizeDepth(value: unknown): 1 | 2 {
   return value === 2 ? 2 : 1;
+}
+
+function normalizeLimit(value: unknown): number {
+  if (typeof value !== "number" || !Number.isFinite(value) || value <= 0) {
+    return 50;
+  }
+
+  return Math.min(Math.floor(value), 200);
 }
 
 function assertNodeExists(graph: FabricGraph, id: string): void {

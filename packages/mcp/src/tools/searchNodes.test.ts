@@ -41,6 +41,35 @@ describe("searchNodes", () => {
     expect(result.matches.map((match) => match.id)).toEqual(["service.auth", "utility.token"]);
     expect((result.matches[0]?.score ?? 0) > (result.matches[1]?.score ?? 0)).toEqual(true);
   });
+
+  test("limits owned files in search results by default", async () => {
+    const project = fixtureProject({
+      nodes: [
+        {
+          id: "utility.large",
+          name: "Large Utility",
+          type: "utility",
+          description: "Large utility with many files.",
+          owns: [
+            "src/one.ts",
+            "src/two.ts",
+            "src/three.ts",
+            "src/four.ts",
+            "src/five.ts",
+            "src/six.ts"
+          ],
+          dependsOn: []
+        }
+      ],
+      edges: []
+    });
+
+    const result = await searchNodes(project, { query: "large utility" });
+
+    expect(result.matches[0]?.owns.length).toEqual(5);
+    expect(result.matches[0]?.ownsTruncated).toEqual(true);
+    expect(result.matches[0]?.totalOwnedFiles).toEqual(6);
+  });
 });
 
 function fixtureProject(graph: Pick<FabricGraph, "nodes" | "edges">): LoadedFabricProject {

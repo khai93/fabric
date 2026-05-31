@@ -71,7 +71,8 @@ export async function startMcpServer(projectRoot = process.cwd()): Promise<void>
           type: "object",
           properties: {
             query: { type: "string" },
-            limit: { type: "number" }
+            limit: { type: "number" },
+            maxOwnedFiles: { type: "number" }
           },
           required: ["query"]
         }
@@ -82,7 +83,10 @@ export async function startMcpServer(projectRoot = process.cwd()): Promise<void>
         inputSchema: {
           type: "object",
           properties: {
-            id: { type: "string" }
+            id: { type: "string" },
+            maxSummaryBytes: { type: "number" },
+            maxOwnedFiles: { type: "number" },
+            maxDependsOn: { type: "number" }
           },
           required: ["id"]
         }
@@ -95,7 +99,8 @@ export async function startMcpServer(projectRoot = process.cwd()): Promise<void>
           properties: {
             id: { type: "string" },
             depth: { type: "number", enum: [1, 2] },
-            direction: { type: "string", enum: ["incoming", "outgoing", "both"] }
+            direction: { type: "string", enum: ["incoming", "outgoing", "both"] },
+            limit: { type: "number" }
           },
           required: ["id"]
         }
@@ -143,7 +148,8 @@ export async function startMcpServer(projectRoot = process.cwd()): Promise<void>
           type: "object",
           properties: {
             query: { type: "string" },
-            limit: { type: "number" }
+            limit: { type: "number" },
+            maxOwnedFiles: { type: "number" }
           },
           required: ["query"]
         }
@@ -266,14 +272,24 @@ export async function startMcpServer(projectRoot = process.cwd()): Promise<void>
 async function callTool(name: string, project: Awaited<ReturnType<typeof loadFabricProject>>, args: Record<string, unknown>): Promise<unknown> {
   switch (name) {
     case toolNames.searchNodes:
-      return searchNodes(project, { query: requireString(args.query, "query"), limit: optionalNumber(args.limit, "limit") });
+      return searchNodes(project, {
+        query: requireString(args.query, "query"),
+        limit: optionalNumber(args.limit, "limit"),
+        maxOwnedFiles: optionalNumber(args.maxOwnedFiles, "maxOwnedFiles")
+      });
     case toolNames.getNode:
-      return getNode(project, { id: requireString(args.id, "id") });
+      return getNode(project, {
+        id: requireString(args.id, "id"),
+        maxSummaryBytes: optionalNumber(args.maxSummaryBytes, "maxSummaryBytes"),
+        maxOwnedFiles: optionalNumber(args.maxOwnedFiles, "maxOwnedFiles"),
+        maxDependsOn: optionalNumber(args.maxDependsOn, "maxDependsOn")
+      });
     case toolNames.getNeighbors:
       return getNeighbors(project, {
         id: requireString(args.id, "id"),
         depth: optionalNumber(args.depth, "depth"),
-        direction: optionalDirection(args.direction)
+        direction: optionalDirection(args.direction),
+        limit: optionalNumber(args.limit, "limit")
       });
     case toolNames.getOwnedFiles:
       return getOwnedFiles(project, { id: requireString(args.id, "id") });
@@ -286,7 +302,11 @@ async function callTool(name: string, project: Awaited<ReturnType<typeof loadFab
         maxDepth: optionalNumber(args.maxDepth, "maxDepth")
       });
     case toolNames.findDuplicateCapability:
-      return findDuplicateCapability(project, { query: requireString(args.query, "query"), limit: optionalNumber(args.limit, "limit") });
+      return findDuplicateCapability(project, {
+        query: requireString(args.query, "query"),
+        limit: optionalNumber(args.limit, "limit"),
+        maxOwnedFiles: optionalNumber(args.maxOwnedFiles, "maxOwnedFiles")
+      });
     case toolNames.getRepoContext:
       return getRepoContext(project);
     case toolNames.listEvidenceFiles:

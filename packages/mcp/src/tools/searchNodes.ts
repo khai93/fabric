@@ -8,6 +8,7 @@ import { scoreNode } from "../utils/scoreText";
 export interface SearchNodesInput {
   query: string;
   limit?: number;
+  maxOwnedFiles?: number;
 }
 
 export interface SearchNodesMatch {
@@ -17,14 +18,21 @@ export interface SearchNodesMatch {
   score: number;
   description?: string;
   owns: string[];
+  ownsTruncated?: boolean;
+  totalOwnedFiles: number;
   summaryPath?: string;
 }
+
+const defaultSearchLimit = 8;
+const defaultMaxOwnedFiles = 5;
+const maxOwnedFilesCap = 25;
 
 export async function searchNodes(project: LoadedFabricProject, input: SearchNodesInput): Promise<{
   query: string;
   matches: SearchNodesMatch[];
 }> {
-  const limit = normalizeLimit(input.limit, 10);
+  const limit = normalizeLimit(input.limit, defaultSearchLimit);
+  const maxOwnedFiles = normalizeLimit(input.maxOwnedFiles, defaultMaxOwnedFiles, maxOwnedFilesCap);
   const summaries = await readNodeSummaries(project);
   const matches = project.graph.nodes
     .map((node) => ({
@@ -34,17 +42,17 @@ export async function searchNodes(project: LoadedFabricProject, input: SearchNod
     .filter((match) => match.score > 0)
     .sort((a, b) => b.score - a.score || a.node.id.localeCompare(b.node.id))
     .slice(0, limit)
-    .map(({ node, score }) => toSearchMatch(node, score));
+    .map(({ node, score }) => toSearchMatch(node, score, maxOwnedFiles));
 
   return { query: input.query, matches };
 }
 
-export function normalizeLimit(value: unknown, defaultLimit: number): number {
+export function normalizeLimit(value: unknown, defaultLimit: number, cap = 50): number {
   if (typeof value !== "number" || !Number.isFinite(value) || value <= 0) {
     return defaultLimit;
   }
 
-  return Math.min(Math.floor(value), 50);
+  return Math.min(Math.floor(value), cap);
 }
 
 export async function readNodeSummaries(project: LoadedFabricProject): Promise<Map<string, string>> {
@@ -70,14 +78,18 @@ export async function readNodeSummaries(project: LoadedFabricProject): Promise<M
   return summaries;
 }
 
-function toSearchMatch(node: FabricNode, score: number): SearchNodesMatch {
+function toSearchMatch(node: FabricNode, score: number, maxOwnedFiles: number): SearchNodesMatch {
+  const owns = node.owns.slice(0, maxOwnedFiles);
+
   return {
     id: node.id,
     name: node.name,
     type: node.type,
     score,
     description: node.description,
-    owns: node.owns,
+    owns,
+    ownsTruncated: owns.length < node.owns.length ? true : undefined,
+    totalOwnedFiles: node.owns.length,
     summaryPath: node.summaryPath
   };
 }

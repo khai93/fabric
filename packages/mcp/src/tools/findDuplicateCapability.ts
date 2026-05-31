@@ -5,7 +5,10 @@ import { normalizeLimit, readNodeSummaries } from "./searchNodes";
 export interface FindDuplicateCapabilityInput {
   query: string;
   limit?: number;
+  maxOwnedFiles?: number;
 }
+
+const defaultMaxOwnedFiles = 5;
 
 export async function findDuplicateCapability(project: LoadedFabricProject, input: FindDuplicateCapabilityInput): Promise<{
   query: string;
@@ -16,9 +19,12 @@ export async function findDuplicateCapability(project: LoadedFabricProject, inpu
     score: number;
     reason: string;
     owns: string[];
+    ownsTruncated?: boolean;
+    totalOwnedFiles: number;
   }>;
   instruction: string;
 }> {
+  const maxOwnedFiles = normalizeLimit(input.maxOwnedFiles, defaultMaxOwnedFiles, 25);
   const summaries = await readNodeSummaries(project);
   const candidates = project.graph.nodes
     .map((node) => {
@@ -36,7 +42,9 @@ export async function findDuplicateCapability(project: LoadedFabricProject, inpu
       reason: matchedTokens.length > 0
         ? `Matched ${matchedTokens.join(", ")} in node metadata, summaries, or owned files.`
         : "Matched node metadata, summaries, or owned files.",
-      owns: node.owns
+      owns: node.owns.slice(0, maxOwnedFiles),
+      ownsTruncated: node.owns.length > maxOwnedFiles ? true : undefined,
+      totalOwnedFiles: node.owns.length
     }));
 
   return {
