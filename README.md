@@ -150,7 +150,84 @@ Five repeated scan runs on the same checkout:
 
 Median scan time: **2.76 seconds**.
 
-### Agent context benchmark
+### Agent task benchmarks
+
+The following tasks compare regular prompting against Fabric-assisted prompting. In both cases, the "speed" measurement is context retrieval time on the local checkout, not LLM text generation time. Regular prompting used repository search and targeted file reads. Fabric-assisted prompting used Fabric node search plus node expansion.
+
+#### 1. Simple feature planning
+
+Task prompt:
+
+```txt
+In the Nx repository, plan the smallest change to make `nx show projects --json` return project names in sorted order.
+```
+
+Observed output from regular prompting:
+
+```txt
+Edit packages/nx/src/command-line/show/projects.ts.
+Create a sorted array from selectedProjects before output.
+Use that array for json, sep, and plain output paths.
+Update packages/nx/src/command-line/show/projects.spec.ts to cover sorted JSON output.
+```
+
+Observed output from Fabric-assisted prompting:
+
+```txt
+Fabric nodes:
+- unknown.projects -> packages/nx/src/command-line/show/projects.ts
+- test.projects -> packages/nx/src/command-line/show/projects.spec.ts
+
+Implementation plan:
+sort Array.from(selectedProjects) once, then reuse it for JSON, separator, and line-by-line output.
+Add or update the JSON output test in projects.spec.ts.
+```
+
+| Workflow | Retrieval work | Wall time | Context payload |
+| --- | --- | ---: | ---: |
+| Regular prompt | one `rg` search plus two targeted file reads | ~0.01 s median | 25,392 bytes |
+| Fabric-assisted prompt | `search_nodes`, two `get_node` calls, two `expand_node_code` calls | 35.05 ms median | 17,963 bytes |
+
+Fabric reduced prompt payload by **29.3%** for this small, already well-localized task.
+
+#### 2. Deep nested feature explanation
+
+Task prompt:
+
+```txt
+Find and explain the deep target-configuration merge behavior in Nx, especially how `mergeTargetConfigurations` handles `...` spread syntax, options, configurations, metadata, and incompatible executors.
+```
+
+Observed output from regular prompting:
+
+```txt
+Relevant implementation:
+- packages/nx/src/project-graph/utils/project-configuration/target-merging.ts
+- packages/nx/src/project-graph/utils/project-configuration/target-merging.spec.ts
+
+Explanation:
+mergeTargetConfigurations checks executor compatibility first. Compatible targets merge top-level keys, options, and configurations; incompatible targets discard base options/configurations. The `...` sentinel changes merge order so keys before it let the base win and keys after it let the higher-priority target win. Source maps are updated as merged values are written. Metadata is merged separately, with arrays appended and nested values tracked.
+```
+
+Observed output from Fabric-assisted prompting:
+
+```txt
+Fabric nodes:
+- utility.target.merging -> packages/nx/src/project-graph/utils/project-configuration/target-merging.ts
+- test.target.merging -> packages/nx/src/project-graph/utils/project-configuration/target-merging.spec.ts
+
+Explanation:
+The feature is isolated in target-merging.ts. `mergeTargetConfigurations` splits base options/configurations from other target properties, checks compatibility with `isCompatibleTarget`, uses `NX_SPREAD_TOKEN` to preserve authored merge order, delegates nested option/configuration merging to helper functions, records source-map ownership, and merges metadata after the main target body.
+```
+
+| Workflow | Retrieval work | Wall time | Context payload |
+| --- | --- | ---: | ---: |
+| Regular prompt | one `rg` search plus implementation and spec reads | ~0.01 s median | 69,100 bytes |
+| Fabric-assisted prompt | `search_nodes`, two `get_node` calls, one `expand_node_code` call | 33.57 ms median | 29,303 bytes |
+
+Fabric reduced prompt payload by **57.6%** while preserving the implementation and test targets.
+
+#### 3. Cross-cutting project-configuration discovery
 
 Task prompt:
 
@@ -158,21 +235,33 @@ Task prompt:
 In the Nx repository, identify the source files an agent should inspect to change how project.json/workspace.json project configuration feeds project graph creation.
 ```
 
-The task was run both ways: first as a regular raw-repository prompt using search and file reads, then with Fabric node search and node expansion.
+Observed output from regular prompting:
+
+```txt
+Relevant files:
+- packages/nx/src/config/workspace-json-project-json.ts
+- packages/nx/src/project-graph/utils/project-configuration-utils.ts
+- packages/nx/src/project-graph/project-graph.ts
+- packages/workspace/src/core/project-graph.ts
+```
+
+Observed output from Fabric-assisted prompting:
+
+```txt
+Fabric nodes:
+- utility.workspace.json.project.json -> packages/nx/src/config/workspace-json-project-json.ts
+- utility.project.configuration.utils -> packages/nx/src/project-graph/utils/project-configuration-utils.ts
+- unknown.project.graph -> packages/nx/src/project-graph/project-graph.ts, packages/workspace/src/core/project-graph.ts
+```
 
 | Workflow | Retrieval work | Wall time | Context payload |
 | --- | --- | ---: | ---: |
 | Regular prompt | two `rg` searches plus targeted file reads | ~0.03 s median | 275,146 bytes |
-| Fabric-assisted prompt | `search_nodes`, three `get_node` calls, one `expand_node_code` call | 30.37 ms median | 29,499 bytes |
+| Fabric-assisted prompt | `search_nodes`, three `get_node` calls, one `expand_node_code` call | 31.17 ms median | 29,089 bytes |
 
-Both workflows identified the same core edit targets:
+Fabric reduced prompt payload by **89.4%** for the cross-cutting discovery task.
 
-- `packages/nx/src/config/workspace-json-project-json.ts`
-- `packages/nx/src/project-graph/utils/project-configuration-utils.ts`
-- `packages/nx/src/project-graph/project-graph.ts`
-- `packages/workspace/src/core/project-graph.ts`
-
-Result: Fabric did not beat `rg` at raw local text search. Fabric is useful at the agent-context layer: it reduced the prompt payload for this discovery task by **89.3%** while preserving the same target files, leaving less repeated search output, less irrelevant context, and fewer tokens to reason over.
+Across all three tasks, Fabric did not beat `rg` at raw local text search. Fabric is useful at the agent-context layer: it gives the agent a smaller, structured payload with node ownership and summaries before expanding raw source.
 
 ## Commands
 
