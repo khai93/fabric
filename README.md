@@ -180,9 +180,11 @@ Summary:
 
 Fabric still does not beat `rg` at raw local text search. The gain is at the agent-context layer: fewer noisy search results, smaller prompts, fewer model tokens, and lower end-to-end Codex task time.
 
-### Codex edit benchmark
+### Codex edit benchmarks
 
-This benchmark let Codex edit files in two isolated copies of the same Nx checkout. The feature was intentionally small but real:
+These benchmarks let Codex edit files in isolated copies of the same Nx checkout. The first feature is intentionally small. The second is deeper and touches command registration, handler behavior, conflicts, and tests.
+
+#### Small edit: sorted JSON output
 
 ```txt
 Implement the smallest code change to make `nx show projects --json` return project names in sorted order, and update the relevant unit test.
@@ -209,6 +211,48 @@ console.log(JSON.stringify(Array.from(selectedProjects).sort()));
 Fabric-assisted editing reduced Codex edit time by **8.4%** and token usage by **20.7%** on this small feature. The improvement is smaller than in planning tasks because most of the work was actual source inspection and patching once the files were known.
 
 Validation note: both isolated Nx edit checkouts lacked local package-manager tooling for the full Nx test command. Codex reported the intended focused validation but could not run it because `pnpm` was unavailable and `npx` attempted registry access. The diffs were limited to the implementation and unit test.
+
+#### Deeper edit: new `--count` option
+
+```txt
+Implement a new `--count` option for `nx show projects`.
+```
+
+Expected behavior:
+
+```txt
+- `nx show projects --count` prints only the number of selected projects.
+- The count respects existing filters such as `--affected`, `--projects`, `--withTarget`, `--type`, and `--exclude`.
+- `--count` conflicts with `--json` and `--sep`.
+- Relevant unit tests are updated.
+```
+
+Both runs changed the core implementation files:
+
+```txt
+packages/nx/src/command-line/show/command-object.ts
+packages/nx/src/command-line/show/projects.ts
+packages/nx/src/command-line/show/projects.spec.ts
+```
+
+Both runs implemented the same core behavior:
+
+```ts
+if (args.count) {
+  console.log(selectedProjects.size);
+} else if (args.json) {
+  console.log(JSON.stringify(Array.from(selectedProjects)));
+}
+```
+
+| Workflow | Starting context | Codex edit time | Tokens used | Result |
+| --- | --- | ---: | ---: | --- |
+| Regular prompt | Repository search from scratch; `.fab` removed | 274.85 s | 135,199 | Correct core implementation; also left an extra untracked command-object spec attempt |
+| Fabric-assisted prompt | Fabric nodes for projects handler, command object, and tests supplied up front | 169.00 s | 69,380 | Correct implementation and focused tests |
+
+Fabric-assisted editing reduced Codex edit time by **38.5%** and token usage by **48.7%** on this deeper feature. The benefit was larger because Fabric removed much of the discovery work around where the command is registered, where selected projects are produced, and where behavior is tested.
+
+Validation note: both isolated Nx edit checkouts still lacked package-manager tooling for the full Nx test command. Codex ran `git diff --check` successfully in the Fabric-assisted run, but could not run the focused Nx/Jest test because `pnpm` was unavailable and `npx` attempted registry access.
 
 #### 1. Simple feature planning
 
