@@ -70,6 +70,8 @@ fab scan
 fab validate
 ```
 
+Agents should do the same after source edits. `fabric.rebuild_graph` updates graph relationships from existing Fabric node files; it does not rescan source files or refresh evidence.
+
 ## MCP Usage
 
 Start the MCP server from the indexed project:
@@ -350,6 +352,15 @@ Run validation after generation:
 ```sh
 fab validate
 ```
+
+If source files changed during the work, refresh the generated overlay first:
+
+```sh
+fab scan
+fab validate
+```
+
+Use `fabric.rebuild_graph` for MCP-authored node changes. Use `fab scan` when the source tree itself changed.
 
 ## Development
 

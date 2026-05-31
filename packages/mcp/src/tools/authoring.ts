@@ -303,10 +303,17 @@ Your task:
 10. Call fabric.validate.
 11. If validation fails, fix nodes and validate again.
 
+If source files changed during the task:
+1. Run fab scan from the repository root.
+2. Run fab validate.
+3. Restart or refresh the MCP client if it has cached old Fabric context.
+
 Rules:
 - Source files remain source of truth.
 - Do not move source files.
 - Do not edit application code unless the user explicitly asks.
+- fabric.rebuild_graph only rebuilds relationships from existing node files; it does not rescan source files or refresh evidence.
+- After source edits, use fab scan and fab validate before relying on Fabric context.
 - Do not create one node per tiny function.
 - Prefer service/workflow/component/system/repository/route-level nodes.
 - Every node must cite evidence.

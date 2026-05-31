@@ -14,6 +14,15 @@ Do not move user source files. Source files remain the source of truth and `.fab
 
 Run validation after node generation.
 
+When source files change, rerun the scanner before trusting `.fab/` context:
+
+```sh
+fab scan
+fab validate
+```
+
+`fabric.rebuild_graph` only rebuilds relationships from existing node files. It does not rescan source files or refresh evidence.
+
 When changing code:
 
 - Prefer small, deterministic, testable changes.
