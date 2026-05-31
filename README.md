@@ -150,9 +150,33 @@ Five repeated scan runs on the same checkout:
 
 Median scan time: **2.76 seconds**.
 
-### Agent task benchmarks
+### Codex task benchmarks
 
-The following tasks compare regular prompting against Fabric-assisted prompting. In both cases, the "speed" measurement is context retrieval time on the local checkout, not LLM text generation time. Regular prompting used repository search and targeted file reads. Fabric-assisted prompting used Fabric node search plus node expansion.
+The following benchmarks compare regular prompting against Fabric-assisted prompting on the same Nx checkout. Regular prompting used repository search and targeted file reads. Fabric-assisted prompting started from Fabric node ownership and summaries, then expanded source only when needed.
+
+`Prompt build` is local context assembly time. `Codex task` is the wall-clock time for `codex exec` to inspect the repo and produce the final answer. The Codex runs used `gpt-5.5`, read-only sandboxing, and no file edits.
+
+| Task | Workflow | Prompt build | Prompt payload | Codex task | Tokens used |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Simple feature planning | Regular prompt | ~0.01 s | 25.4 KB | 54.76 s | 72,602 |
+| Simple feature planning | Fabric-assisted | 35.05 ms | 18.0 KB | 20.57 s | 43,764 |
+| Deep feature explanation | Regular prompt | ~0.01 s | 69.1 KB | 83.07 s | 97,547 |
+| Deep feature explanation | Fabric-assisted | 33.57 ms | 29.3 KB | 55.97 s | 47,427 |
+| Cross-cutting discovery | Regular prompt | ~0.03 s | 275.1 KB | 91.07 s | 90,558 |
+| Cross-cutting discovery | Fabric-assisted | 31.17 ms | 29.1 KB | 76.42 s | 66,823 |
+| Long target-defaults investigation | Regular prompt | ~0.01 s | 364.6 KB | 99.04 s | 89,898 |
+| Long target-defaults investigation | Fabric-assisted | 39.39 ms | 63.4 KB | 58.73 s | 60,384 |
+
+Summary:
+
+| Task | Context reduction | Codex time reduction | Token reduction |
+| --- | ---: | ---: | ---: |
+| Simple feature planning | 29.3% | 62.4% | 39.7% |
+| Deep feature explanation | 57.6% | 32.6% | 51.4% |
+| Cross-cutting discovery | 89.4% | 16.1% | 26.2% |
+| Long target-defaults investigation | 82.6% | 40.7% | 32.8% |
+
+Fabric still does not beat `rg` at raw local text search. The gain is at the agent-context layer: fewer noisy search results, smaller prompts, fewer model tokens, and lower end-to-end Codex task time.
 
 #### 1. Simple feature planning
 
@@ -179,16 +203,9 @@ Fabric nodes:
 - test.projects -> packages/nx/src/command-line/show/projects.spec.ts
 
 Implementation plan:
-sort Array.from(selectedProjects) once, then reuse it for JSON, separator, and line-by-line output.
-Add or update the JSON output test in projects.spec.ts.
+sort only the JSON output path with Array.from(selectedProjects).sort().
+Update the JSON output test in projects.spec.ts.
 ```
-
-| Workflow | Retrieval work | Wall time | Context payload |
-| --- | --- | ---: | ---: |
-| Regular prompt | one `rg` search plus two targeted file reads | ~0.01 s median | 25,392 bytes |
-| Fabric-assisted prompt | `search_nodes`, two `get_node` calls, two `expand_node_code` calls | 35.05 ms median | 17,963 bytes |
-
-Fabric reduced prompt payload by **29.3%** for this small, already well-localized task.
 
 #### 2. Deep nested feature explanation
 
@@ -220,13 +237,6 @@ Explanation:
 The feature is isolated in target-merging.ts. `mergeTargetConfigurations` splits base options/configurations from other target properties, checks compatibility with `isCompatibleTarget`, uses `NX_SPREAD_TOKEN` to preserve authored merge order, delegates nested option/configuration merging to helper functions, records source-map ownership, and merges metadata after the main target body.
 ```
 
-| Workflow | Retrieval work | Wall time | Context payload |
-| --- | --- | ---: | ---: |
-| Regular prompt | one `rg` search plus implementation and spec reads | ~0.01 s median | 69,100 bytes |
-| Fabric-assisted prompt | `search_nodes`, two `get_node` calls, one `expand_node_code` call | 33.57 ms median | 29,303 bytes |
-
-Fabric reduced prompt payload by **57.6%** while preserving the implementation and test targets.
-
 #### 3. Cross-cutting project-configuration discovery
 
 Task prompt:
@@ -254,14 +264,41 @@ Fabric nodes:
 - unknown.project.graph -> packages/nx/src/project-graph/project-graph.ts, packages/workspace/src/core/project-graph.ts
 ```
 
-| Workflow | Retrieval work | Wall time | Context payload |
-| --- | --- | ---: | ---: |
-| Regular prompt | two `rg` searches plus targeted file reads | ~0.03 s median | 275,146 bytes |
-| Fabric-assisted prompt | `search_nodes`, three `get_node` calls, one `expand_node_code` call | 31.17 ms median | 29,089 bytes |
+#### 4. Long target-defaults investigation
 
-Fabric reduced prompt payload by **89.4%** for the cross-cutting discovery task.
+Task prompt:
 
-Across all three tasks, Fabric did not beat `rg` at raw local text search. Fabric is useful at the agent-context layer: it gives the agent a smaller, structured payload with node ownership and summaries before expanding raw source.
+```txt
+Produce an investigation plan for changing Nx target defaults so the array-form `targetDefaults` supports an additional `projects` filter in merge/apply behavior, while preserving existing executor, target-name, and plugin matching semantics.
+```
+
+Observed output from regular prompting:
+
+```txt
+Relevant files:
+- packages/nx/src/project-graph/utils/project-configuration/target-defaults.ts
+- packages/nx/src/project-graph/utils/project-configuration/target-defaults.spec.ts
+- packages/nx/src/project-graph/utils/project-configuration/target-merging.ts
+- packages/nx/src/project-graph/utils/project-configuration/project-nodes-manager.ts
+- packages/nx/src/config/nx-json.ts
+- packages/nx/schemas/nx-schema.json
+
+Plan:
+verify existing array-form `projects` support, keep matching centralized in target-defaults.ts, preserve executor/target/plugin specificity, and validate with focused target-defaults tests plus Nx affected checks.
+```
+
+Observed output from Fabric-assisted prompting:
+
+```txt
+Fabric nodes:
+- utility.target.defaults -> packages/nx/src/project-graph/utils/project-configuration/target-defaults.ts
+- test.target.defaults -> packages/nx/src/project-graph/utils/project-configuration/target-defaults.spec.ts
+- utility.target.merging -> packages/nx/src/project-graph/utils/project-configuration/target-merging.ts
+- utility.project.nodes.manager -> packages/nx/src/project-graph/utils/project-configuration/project-nodes-manager.ts
+
+Plan:
+verify existing `projects` filter behavior end to end, patch only uncovered gaps, keep `projects` as a filter rather than merge payload, preserve source-map/plugin specificity, and validate target-defaults, target-merging, project-node manager, affected, and prepush flows.
+```
 
 ## Commands
 
