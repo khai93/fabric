@@ -180,6 +180,36 @@ Summary:
 
 Fabric still does not beat `rg` at raw local text search. The gain is at the agent-context layer: fewer noisy search results, smaller prompts, fewer model tokens, and lower end-to-end Codex task time.
 
+### Codex edit benchmark
+
+This benchmark let Codex edit files in two isolated copies of the same Nx checkout. The feature was intentionally small but real:
+
+```txt
+Implement the smallest code change to make `nx show projects --json` return project names in sorted order, and update the relevant unit test.
+```
+
+Both runs changed the same implementation file and test file:
+
+```txt
+packages/nx/src/command-line/show/projects.ts
+packages/nx/src/command-line/show/projects.spec.ts
+```
+
+Both runs implemented the same behavior:
+
+```ts
+console.log(JSON.stringify(Array.from(selectedProjects).sort()));
+```
+
+| Workflow | Starting context | Codex edit time | Tokens used | Result |
+| --- | --- | ---: | ---: | --- |
+| Regular prompt | Repository search from scratch; `.fab` removed | 154.08 s | 66,356 | Correct implementation and test update |
+| Fabric-assisted prompt | Fabric nodes `unknown.projects` and `test.projects` supplied up front | 141.12 s | 52,591 | Correct implementation and test update |
+
+Fabric-assisted editing reduced Codex edit time by **8.4%** and token usage by **20.7%** on this small feature. The improvement is smaller than in planning tasks because most of the work was actual source inspection and patching once the files were known.
+
+Validation note: both isolated Nx edit checkouts lacked local package-manager tooling for the full Nx test command. Codex reported the intended focused validation but could not run it because `pnpm` was unavailable and `npx` attempted registry access. The diffs were limited to the implementation and unit test.
+
 #### 1. Simple feature planning
 
 Task prompt:
