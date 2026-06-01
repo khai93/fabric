@@ -11,6 +11,7 @@ import { findDuplicateCapability } from "./tools/findDuplicateCapability";
 import { getNeighbors } from "./tools/getNeighbors";
 import { getNode } from "./tools/getNode";
 import { getOwnedFiles } from "./tools/getOwnedFiles";
+import { planContext } from "./tools/planContext";
 import { searchNodes } from "./tools/searchNodes";
 import { traceDependencies } from "./tools/traceDependencies";
 import { loadFabricProject } from "./utils/loadFabricProject";
@@ -33,6 +34,7 @@ const toolNames = {
   getNode: "fabric.get_node",
   getNeighbors: "fabric.get_neighbors",
   getOwnedFiles: "fabric.get_owned_files",
+  planContext: "fabric.plan_context",
   expandNodeCode: "fabric.expand_node_code",
   traceDependencies: "fabric.trace_dependencies",
   findDuplicateCapability: "fabric.find_duplicate_capability",
@@ -114,6 +116,20 @@ export async function startMcpServer(projectRoot = process.cwd()): Promise<void>
             id: { type: "string" }
           },
           required: ["id"]
+        }
+      },
+      {
+        name: toolNames.planContext,
+        description: "Find the most relevant Fabric nodes for a task and return a compact context plan with suggested next MCP calls.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            task: { type: "string" },
+            mode: { type: "string", enum: ["plan", "edit", "explain", "review"] },
+            limit: { type: "number" },
+            maxOwnedFiles: { type: "number" }
+          },
+          required: ["task"]
         }
       },
       {
@@ -293,6 +309,13 @@ async function callTool(name: string, project: Awaited<ReturnType<typeof loadFab
       });
     case toolNames.getOwnedFiles:
       return getOwnedFiles(project, { id: requireString(args.id, "id") });
+    case toolNames.planContext:
+      return planContext(project, {
+        task: requireString(args.task, "task"),
+        mode: optionalString(args.mode, "mode"),
+        limit: optionalNumber(args.limit, "limit"),
+        maxOwnedFiles: optionalNumber(args.maxOwnedFiles, "maxOwnedFiles")
+      });
     case toolNames.expandNodeCode:
       return expandNodeCode(project, { id: requireString(args.id, "id"), maxBytes: optionalNumber(args.maxBytes, "maxBytes") });
     case toolNames.traceDependencies:

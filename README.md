@@ -100,6 +100,7 @@ Useful tools exposed by the server:
 - `fabric.get_node`
 - `fabric.get_neighbors`
 - `fabric.get_owned_files`
+- `fabric.plan_context`
 - `fabric.expand_node_code`
 - `fabric.trace_dependencies`
 - `fabric.find_duplicate_capability`
