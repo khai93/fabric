@@ -1,6 +1,6 @@
 import type { FabricNode } from "@khai93/fabric-core";
 import type { LoadedFabricProject } from "../utils/loadFabricProject";
-import { scoreNode } from "../utils/scoreText";
+import { tokenize } from "../utils/scoreText";
 import { normalizeLimit, readNodeSummaries } from "./searchNodes";
 
 export type ContextPlanMode = "plan" | "edit" | "explain" | "review";
@@ -31,6 +31,37 @@ export interface SuggestedToolCall {
 
 const defaultLimit = 6;
 const defaultMaxOwnedFiles = 4;
+const stopWords = new Set([
+  "a",
+  "an",
+  "and",
+  "are",
+  "as",
+  "at",
+  "be",
+  "by",
+  "code",
+  "do",
+  "for",
+  "from",
+  "how",
+  "in",
+  "into",
+  "is",
+  "it",
+  "make",
+  "of",
+  "on",
+  "or",
+  "plan",
+  "return",
+  "smallest",
+  "so",
+  "that",
+  "the",
+  "to",
+  "with"
+]);
 
 export async function planContext(project: LoadedFabricProject, input: PlanContextInput): Promise<{
   task: string;
@@ -44,17 +75,18 @@ export async function planContext(project: LoadedFabricProject, input: PlanConte
   const limit = normalizeLimit(input.limit, defaultLimit, 15);
   const maxOwnedFiles = normalizeLimit(input.maxOwnedFiles, defaultMaxOwnedFiles, 20);
   const summaries = await readNodeSummaries(project);
+  const taskTokens = relevantTokens(input.task);
   const scored = project.graph.nodes
     .map((node) => {
-      const score = scoreNode(input.task, { node, summary: summaries.get(node.id) });
+      const score = scorePlannedNode(node, summaries.get(node.id), taskTokens);
       return { node, ...score };
     })
     .filter((candidate) => candidate.score > 0)
     .sort((a, b) => b.score - a.score || typeRank(a.node, mode) - typeRank(b.node, mode) || a.node.id.localeCompare(b.node.id));
 
-  const primaryCount = Math.min(limit, mode === "edit" ? 4 : 5);
+  const primaryCount = Math.min(limit, mode === "edit" ? 3 : 4);
   const primaryCandidates = scored
-    .filter((candidate) => mode !== "edit" || candidate.node.type !== "test")
+    .filter((candidate) => candidate.node.type !== "test")
     .slice(0, primaryCount);
   const primaryIds = new Set(primaryCandidates.map((candidate) => candidate.node.id));
 
@@ -95,11 +127,10 @@ function toPlannedNode(node: FabricNode, score: number, matchedTokens: string[],
 
 function suggestToolCalls(primaryNodes: PlannedNode[], secondaryNodes: PlannedNode[], mode: ContextPlanMode): SuggestedToolCall[] {
   const calls: SuggestedToolCall[] = [];
-  const codeNodes = [...primaryNodes, ...secondaryNodes]
-    .filter((node) => mode !== "plan" || node.type !== "test")
-    .slice(0, mode === "edit" ? 4 : 3);
+  const codeNodes = primaryNodes.slice(0, mode === "review" ? 2 : 1);
+  const testNodes = secondaryNodes.filter((node) => node.type === "test").slice(0, mode === "edit" ? 2 : 1);
 
-  for (const node of codeNodes) {
+  for (const node of [...codeNodes, ...testNodes]) {
     calls.push({
       tool: "fabric.expand_node_code",
       args: { id: node.id },
@@ -133,4 +164,64 @@ function typeRank(node: FabricNode, mode: ContextPlanMode): number {
 function primaryThreshold(primaryCandidates: Array<{ score: number }>): number {
   const weakestPrimary = primaryCandidates.at(-1)?.score ?? 0;
   return Math.max(1, weakestPrimary * 0.75);
+}
+
+function relevantTokens(task: string): string[] {
+  return tokenize(task)
+    .map((token) => token.replace(/^--/, ""))
+    .filter((token) => token.length > 1 && !stopWords.has(token));
+}
+
+function scorePlannedNode(node: FabricNode, summary: string | undefined, tokens: string[]): { score: number; matchedTokens: string[] } {
+  let score = 0;
+  const matchedTokens = new Set<string>();
+
+  for (const token of tokens) {
+    const tokenScore = Math.max(
+      scoreField(token, node.id, 16),
+      scoreField(token, node.name, 14),
+      scoreField(token, node.type, 4),
+      scoreField(token, node.description ?? "", 5),
+      scoreField(token, summary ?? "", 2),
+      maxFieldScore(token, node.tags ?? [], 5),
+      maxFieldScore(token, node.owns, 12)
+    );
+
+    if (tokenScore > 0) {
+      matchedTokens.add(token);
+      score += tokenScore;
+    }
+  }
+
+  score += bestOwnedPathCoverage(node.owns, tokens) * 18;
+
+  if (node.type === "test" && tokens.some((token) => token.includes("test") || token.includes("spec"))) {
+    score += 10;
+  }
+
+  return { score, matchedTokens: [...matchedTokens].sort() };
+}
+
+function maxFieldScore(token: string, fields: string[], weight: number): number {
+  return fields.reduce((best, field) => Math.max(best, scoreField(token, field, weight)), 0);
+}
+
+function scoreField(token: string, field: string, weight: number): number {
+  const normalized = field.toLowerCase();
+  if (normalized === token) {
+    return weight * 2;
+  }
+  return normalized.includes(token) ? weight : 0;
+}
+
+function bestOwnedPathCoverage(owns: string[], tokens: string[]): number {
+  let best = 0;
+
+  for (const ownedPath of owns) {
+    const normalized = ownedPath.toLowerCase();
+    const coverage = tokens.filter((token) => normalized.includes(token)).length;
+    best = Math.max(best, coverage);
+  }
+
+  return best;
 }
